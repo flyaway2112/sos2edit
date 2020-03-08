@@ -1,62 +1,62 @@
-############ •¡”‰ñ’Tõ Ver 1.1 ################################
+############ è¤‡æ•°å›æ¢ç´¢ Ver 1.1 ################################
 
-# ---------- à–¾ ----------------------------------------------
-# ‘¼ƒTƒCƒg‚Å‚à‰½í—Ş‚©ŒöŠJ‚³‚ê‚Ä‚¢‚é•¡”‰ñ’Tõ‚Å‚·
-# ‘¼‚Æ”ä‚×‚ÄAƒƒbƒZ[ƒW‚Ì•\¦‚â’Tõ‚Å‚«‚È‚¢‚Æ‚«‚Ì•\¦‚É
-# —D‚ê‚Ä‚¢‚écc‚Æv‚¢‚Ü‚·
-# •Ö‹XãAƒAƒCƒeƒ€‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½‚Æ‚«‚à
-# ‘Ì—Í‚ğÁ”ï‚·‚é‚æ‚¤‚É•ÏX‚³‚ê‚Ä‚¢‚Ü‚·
+# ---------- èª¬æ˜ ----------------------------------------------
+# ä»–ã‚µã‚¤ãƒˆã§ã‚‚ä½•ç¨®é¡ã‹å…¬é–‹ã•ã‚Œã¦ã„ã‚‹è¤‡æ•°å›æ¢ç´¢ã§ã™
+# ä»–ã¨æ¯”ã¹ã¦ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®è¡¨ç¤ºã‚„æ¢ç´¢ã§ããªã„ã¨ãã®è¡¨ç¤ºã«
+# å„ªã‚Œã¦ã„ã‚‹â€¦â€¦ã¨æ€ã„ã¾ã™
+# ä¾¿å®œä¸Šã€ã‚¢ã‚¤ãƒ†ãƒ ãŒè¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸã¨ãã‚‚
+# ä½“åŠ›ã‚’æ¶ˆè²»ã™ã‚‹ã‚ˆã†ã«å¤‰æ›´ã•ã‚Œã¦ã„ã¾ã™
 # --------------------------------------------------------------
 
-# ---------- XV—š—ğ ------------------------------------------
-# Ver1.1   11/13/2003   ƒAƒCƒeƒ€‚ªŒ©‚Â‚©‚ç‚È‚¢‚Æ‚«‚Ìˆ—‚ğC³
-# Ver1.0   11/09/2003   ŒöŠJ
+# ---------- æ›´æ–°å±¥æ­´ ------------------------------------------
+# Ver1.1   11/13/2003   ã‚¢ã‚¤ãƒ†ãƒ ãŒè¦‹ã¤ã‹ã‚‰ãªã„ã¨ãã®å‡¦ç†ã‚’ä¿®æ­£
+# Ver1.0   11/09/2003   å…¬é–‹
 # --------------------------------------------------------------
 
 
-# sos2.cgi‚Ì# Sub Normal Action #‚Ì
-&input('radio','mode','find_item',' checked',"ƒAƒCƒeƒ€’Tõ<br>\n")	 if $mysp !~ /Nf/;
-&input('radio','mode','use_before','',"ƒAƒCƒeƒ€‚Ì’E’…Eg—p<br>\n")	if $mysp =~ /Tf/;
-&input('radio','mode','use_before','',"ƒAƒCƒeƒ€‚Ìg—p<br>\n")		  if $mysp =~ /Tv/;
-# ‚ğ
+# sos2.cgiã®# Sub Normal Action #ã®
+&input('radio','mode','find_item',' checked',"ã‚¢ã‚¤ãƒ†ãƒ æ¢ç´¢<br>\n")	 if $mysp !~ /Nf/;
+&input('radio','mode','use_before','',"ã‚¢ã‚¤ãƒ†ãƒ ã®è„±ç€ãƒ»ä½¿ç”¨<br>\n")	if $mysp =~ /Tf/;
+&input('radio','mode','use_before','',"ã‚¢ã‚¤ãƒ†ãƒ ã®ä½¿ç”¨<br>\n")		  if $mysp =~ /Tv/;
+# ã‚’
 @rcdlines = &get_user("$Fm{'id'}");
 $hpn = $hp - 1;
 $cantfind = " checked" if $hp < 2 || $xi <= @items;
 if ($cantfind && $mysp !~ /Nf/) {
-	&input('radio','mode','find_item','',"ƒAƒCƒeƒ€’Tõ@\n");
-	&input('text','n','0',' size="2" disabled',"‰ñ<br>\n");
+	&input('radio','mode','find_item','',"ã‚¢ã‚¤ãƒ†ãƒ æ¢ç´¢ã€€\n");
+	&input('text','n','0',' size="2" disabled',"å›<br>\n");
 	}
 elsif ($mysp !~ /Nf/) {
-	&input('radio','mode','find_item',' checked',"ƒAƒCƒeƒ€’Tõ@\n");
-	&input('text','n',"$hpn",' size="2"',"‰ñ<br>\n");
+	&input('radio','mode','find_item',' checked',"ã‚¢ã‚¤ãƒ†ãƒ æ¢ç´¢ã€€\n");
+	&input('text','n',"$hpn",' size="2"',"å›<br>\n");
 	}
-&input('radio','mode','use_before',"$cantfind","ƒAƒCƒeƒ€‚Ì’E’…Eg—p<br>\n")	if $mysp =~ /Tf/;
-&input('radio','mode','use_before',"$cantfind","ƒAƒCƒeƒ€‚Ìg—p<br>\n")		if $mysp =~ /Tv/;
-# ‚É•ÏX‚µ‚Ü‚·
+&input('radio','mode','use_before',"$cantfind","ã‚¢ã‚¤ãƒ†ãƒ ã®è„±ç€ãƒ»ä½¿ç”¨<br>\n")	if $mysp =~ /Tf/;
+&input('radio','mode','use_before',"$cantfind","ã‚¢ã‚¤ãƒ†ãƒ ã®ä½¿ç”¨<br>\n")		if $mysp =~ /Tv/;
+# ã«å¤‰æ›´ã—ã¾ã™
 
 
-# sos2.cgi‚Ì# Sub Find Item #‚ğˆÈ‰º‚Ì‚à‚Ì‚É’u‚«Š·‚¦‚Ü‚·
-#########################   ‚±‚±‚©‚ç   #########################
+# sos2.cgiã®# Sub Find Item #ã‚’ä»¥ä¸‹ã®ã‚‚ã®ã«ç½®ãæ›ãˆã¾ã™
+#########################   ã“ã“ã‹ã‚‰   #########################
 # Sub Find Item #
 sub find_item {
 if (!$post) { return }
 @rcdlines = &get_user("$Fm{'id'}");
 
-if ($av eq 'dead') { push (@msg,'€‚ñ‚Å‚¢‚Ü‚·');return }
-if ($hp <= 1)	  { push (@msg,'ƒqƒbƒgƒ|ƒCƒ“ƒg‚ª‘«‚è‚Ü‚¹‚ñ');return }
+if ($av eq 'dead') { push (@msg,'æ­»ã‚“ã§ã„ã¾ã™');return }
+if ($hp <= 1)	  { push (@msg,'ãƒ’ãƒƒãƒˆãƒã‚¤ãƒ³ãƒˆãŒè¶³ã‚Šã¾ã›ã‚“');return }
 
 &splititem('i');
-if (@items >= $xi) { push (@msg,'‚±‚êˆÈã‚Í‚Ä‚Ü‚¹‚ñ');return }
+if (@items >= $xi) { push (@msg,'ã“ã‚Œä»¥ä¸Šã¯æŒã¦ã¾ã›ã‚“');return }
 
 $Fm{'n'} = 1 if $Fm{'n'} =~ /\D/ || !$Fm{'n'};
 $Fm{'n'} = $hp - 1 if $Fm{'n'} > $hp - 1;
 
 @itemlines = &opendat($itmdat);
-if (!@itemlines) { &error('ƒAƒCƒeƒ€ƒf[ƒ^“Ç‚İ‚±‚İƒGƒ‰[') }
+if (!@itemlines) { &error('ã‚¢ã‚¤ãƒ†ãƒ ãƒ‡ãƒ¼ã‚¿èª­ã¿ã“ã¿ã‚¨ãƒ©ãƒ¼') }
 
 foreach (1 .. $Fm{'n'}) {
-	if ($hp < 2) {&findlast; push (@msg,"‘Ì—Í‚ª‘«‚è‚Ü‚¹‚ñ"); return}
-	if (@items + @gotitem >= $xi) {&findlast; push (@msg,"‚±‚êˆÈã‚Í‚Ä‚Ü‚¹‚ñ"); return}
+	if ($hp < 2) {&findlast; push (@msg,"ä½“åŠ›ãŒè¶³ã‚Šã¾ã›ã‚“"); return}
+	if (@items + @gotitem >= $xi) {&findlast; push (@msg,"ã“ã‚Œä»¥ä¸Šã¯æŒã¦ã¾ã›ã‚“"); return}
 	&findloop;
 	}
 
@@ -70,7 +70,7 @@ $poison = int(rand(100)) + 1;
 $stellatio = int(rand(100)) + 1;
 $rnd = int(rand(100)) + 1;
 
-# ’Tõ‚Ì“Áê”\—Í
+# æ¢ç´¢ã®ç‰¹æ®Šèƒ½åŠ›
 if ($sp =~ /Ft/) { $rnd -= 2; $rnd = 1 if $rnd < 1 }
 
 foreach $item (@itemlines) {
@@ -88,14 +88,14 @@ return if !$inm;
 if ($poison <= $def_pd && $av eq 'poison') {$hp--; $hp = 1 if $hp < 1; $dmg++}
 
 if ($stellatio <= $def_zd) {
-	if ($def_xs && length($is) > $def_xs - 1) { push (@msg,'ƒXƒeƒ‰ƒcƒBƒI‚ğ”­Œ©‚µ‚Ü‚µ‚½‚ªAŠƒI[ƒo[‚Ìˆ×Ì‚Ä‚Ü‚µ‚½');return }
+	if ($def_xs && length($is) > $def_xs - 1) { push (@msg,'ã‚¹ãƒ†ãƒ©ãƒ„ã‚£ã‚ªã‚’ç™ºè¦‹ã—ã¾ã—ãŸãŒã€æ‰€æŒã‚ªãƒ¼ãƒãƒ¼ã®ç‚ºæ¨ã¦ã¾ã—ãŸ');return }
 	$itsrnd = int(rand(12));
 	$is .= "$iti[$itsrnd]";
-	push (@msg,"<img src=$imgdir$itsrnd$def_jg width=$st_wd height=$st_ht> $itn[$itsrnd]‚ÌƒXƒeƒ‰ƒcƒBƒI‚ğ”­Œ©‚µ‚Ü‚µ‚½");
+	push (@msg,"<img src=$imgdir$itsrnd$def_jg width=$st_wd height=$st_ht> $itn[$itsrnd]ã®ã‚¹ãƒ†ãƒ©ãƒ„ã‚£ã‚ªã‚’ç™ºè¦‹ã—ã¾ã—ãŸ");
 	return;
 	}
 
-if ($idt !~ /Gl/) {push (@gotitem,"$inm¢$idt"); push (@msg,"$inm‚ğ‚İ‚Â‚¯‚Ü‚µ‚½")}
+if ($idt !~ /Gl/) {push (@gotitem,"$inmâ–³$idt"); push (@msg,"$inmã‚’ã¿ã¤ã‘ã¾ã—ãŸ")}
 else {$money += substr($idt,0,4)}
 
 if ($idt =~ /Li/) {
@@ -109,13 +109,13 @@ if ($idt =~ /Li/) {
 
 # Sub Find Last #
 sub findlast {
-push (@msg,"“Å‚É‚æ‚éƒ_ƒ[ƒW‚Ì‚½‚ß‘Ì—Í‚ª$dmgŒ¸‚è‚Ü‚µ‚½") if $dmg;
-push (@msg,"$money‰~‚ğ‚İ‚Â‚¯‚Ü‚µ‚½") if $money;
-push (@msg,"‰½‚à‚İ‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½") if !$money && !@gotitem;
+push (@msg,"æ¯’ã«ã‚ˆã‚‹ãƒ€ãƒ¡ãƒ¼ã‚¸ã®ãŸã‚ä½“åŠ›ãŒ$dmgæ¸›ã‚Šã¾ã—ãŸ") if $dmg;
+push (@msg,"$moneyå††ã‚’ã¿ã¤ã‘ã¾ã—ãŸ") if $money;
+push (@msg,"ä½•ã‚‚ã¿ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸ") if !$money && !@gotitem;
 @items = (@items,@gotitem); $mn += $money; &joinitem('i');
 &userout;
 }
-#########################   ‚±‚±‚Ü‚Å   #########################
+#########################   ã“ã“ã¾ã§   #########################
 
 
-# ˆÈã‚Å‰ü‘¢Š®—¹‚Å‚·
+# ä»¥ä¸Šã§æ”¹é€ å®Œäº†ã§ã™

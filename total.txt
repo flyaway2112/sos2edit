@@ -1,122 +1,122 @@
-############ Šl“¾‹à•”„ã‹à•\¦ Ver 1.0 ########################
+############ ç²å¾—é‡‘ï¼†å£²ä¸Šé‡‘è¡¨ç¤º Ver 1.0 ########################
 
-# ---------- à–¾ ----------------------------------------------
-# í“¬Œn‚ÌƒLƒƒƒ‰ƒNƒ^[‚É•ñ§‹à‚ÌŠl“¾‹àŠz‚Ì‘Šz‚ğ‹L˜^‚³‚¹A
-# ”ñí“¬Œn‚ÌƒLƒƒƒ‰ƒNƒ^[‚ÉƒAƒCƒeƒ€‚Ì”„ã‹àŠz‚Ì‘Šz‚ğ‹L˜^‚³‚¹‚Ü‚·
-# $tt($ptt)‚Æ‚¢‚¤ƒtƒ‰ƒO‚ğV‚½‚É’Ç‰Á‚·‚é•K—v‚ª‚ ‚è‚Ü‚·
+# ---------- èª¬æ˜ ----------------------------------------------
+# æˆ¦é—˜ç³»ã®ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã«å ±å¥¨é‡‘ã®ç²å¾—é‡‘é¡ã®ç·é¡ã‚’è¨˜éŒ²ã•ã›ã€
+# éæˆ¦é—˜ç³»ã®ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã«ã‚¢ã‚¤ãƒ†ãƒ ã®å£²ä¸Šé‡‘é¡ã®ç·é¡ã‚’è¨˜éŒ²ã•ã›ã¾ã™
+# $tt($ptt)ã¨ã„ã†ãƒ•ãƒ©ã‚°ã‚’æ–°ãŸã«è¿½åŠ ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™
 # --------------------------------------------------------------
 
-# ---------- XV—š—ğ ------------------------------------------
-# Ver1.0   11/10/2003   ŒöŠJ
+# ---------- æ›´æ–°å±¥æ­´ ------------------------------------------
+# Ver1.0   11/10/2003   å…¬é–‹
 # --------------------------------------------------------------
 
 
-# $tt($ptt)‚Ìƒtƒ‰ƒO‘«‚µ‚ğ{‚µ‚Ü‚·
-# ƒoƒbƒNƒAƒbƒv‚ğæ‚èA×S‚Ì’ˆÓ‚ğ•¥‚Á‚Äs‚È‚Á‚Ä‚­‚¾‚³‚¢
-# ¦ƒtƒ‰ƒO‘«‚µ‚É‚Â‚¢‚Ä‚ÍA
-# Lazing Saga(http://yuya.honey.ne.jp/sos/)‚ÅÚ‚µ‚­‰ğà‚³‚êA
-# ƒQ[ƒ}[ƒY“`à(http://kazu77.s18.xrea.com/)‚Å‚ÍA
-# ì‹Æ‚ğ©“®‰»‚·‚éƒtƒŠ[ƒ\ƒtƒg‚ª”z•z‚³‚ê‚Ä‚¢‚Ü‚·‚Ì‚ÅA
-# ‚»‚¿‚ç‚ğQÆ‚µ‚Ä‚­‚¾‚³‚¢
+# $tt($ptt)ã®ãƒ•ãƒ©ã‚°è¶³ã—ã‚’æ–½ã—ã¾ã™
+# ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚’å–ã‚Šã€ç´°å¿ƒã®æ³¨æ„ã‚’æ‰•ã£ã¦è¡Œãªã£ã¦ãã ã•ã„
+# â€»ãƒ•ãƒ©ã‚°è¶³ã—ã«ã¤ã„ã¦ã¯ã€
+# Lazing Saga(http://yuya.honey.ne.jp/sos/)ã§è©³ã—ãè§£èª¬ã•ã‚Œã€
+# ã‚²ãƒ¼ãƒãƒ¼ã‚ºä¼èª¬(http://kazu77.s18.xrea.com/)ã§ã¯ã€
+# ä½œæ¥­ã‚’è‡ªå‹•åŒ–ã™ã‚‹ãƒ•ãƒªãƒ¼ã‚½ãƒ•ãƒˆãŒé…å¸ƒã•ã‚Œã¦ã„ã¾ã™ã®ã§ã€
+# ãã¡ã‚‰ã‚’å‚ç…§ã—ã¦ãã ã•ã„
 
 
-# sos2.cgi‚Ìİ’è•”•ª‚Ì
-$ricnam = '‘å•x‹';
-# ‚Ì‰º‚É
-$getnam = '‹Sl';
-$prdnam = '‘å¤l';
-# ‚ğ’Ç‰Á‚µ‚Ü‚·
+# sos2.cgiã®è¨­å®šéƒ¨åˆ†ã®
+$ricnam = 'å¤§å¯Œè±ª';
+# ã®ä¸‹ã«
+$getnam = 'é¬¼äºº';
+$prdnam = 'å¤§å•†äºº';
+# ã‚’è¿½åŠ ã—ã¾ã™
 
 
-# sos2.cgi‚Ì# Sub Fight #‚Ì
+# sos2.cgiã®# Sub Fight #ã®
 $mn += $Wm; $plz++; $wn++; $itemchance = 1; $hp = $xp if $hp > $xp;
-# ‚ğ
+# ã‚’
 $mn += $Wm; $tt += $Wm; $plz++; $wn++; $itemchance = 1; $hp = $xp if $hp > $xp;
-# ‚É•ÏX‚µ
+# ã«å¤‰æ›´ã—
 $pmn += $Wm; $lz++; $pwn++; $php = $pxp if $php > $pxp;
-# ‚ğ
+# ã‚’
 $pmn += $Wm; $ptt += $Wm; $lz++; $pwn++; $php = $pxp if $php > $pxp;
-# ‚É•ÏX‚µ‚Ü‚·
+# ã«å¤‰æ›´ã—ã¾ã™
 
 
-# sos2.cgi‚Ì# Sub Buy After #‚Ì
+# sos2.cgiã®# Sub Buy After #ã®
 $mn -= $price; $pmn += $price;
-# ‚ğ
+# ã‚’
 $mn -= $price; $pmn += $price; $ptt += $price;
-# ‚É•ÏX‚µ‚Ü‚·
+# ã«å¤‰æ›´ã—ã¾ã™
 
 
-# sos2.cgi‚Ì# Sub Menu #‚Ì
-print qq|<a href=$cgiurl?mode=list&order=Bounty target=_blank>Bounty</a>b|;
-# ‚Ì‰º‚É
-print qq|<a href=$cgiurl?mode=list&order=GetBounty target=_blank>GetBounty</a>b|;
-# ‚ğ’Ç‰Á‚µ
-print qq|<a href=$cgiurl?mode=list&order=Rate target=_blank>Rate</a>b|;
-# ‚Ì‰º‚É
-print qq|<a href=$cgiurl?mode=list&order=Proceeds target=_blank>Proceeds</a>b|;
-# ‚ğ’Ç‰Á‚µ‚Ü‚·
+# sos2.cgiã®# Sub Menu #ã®
+print qq|<a href=$cgiurl?mode=list&order=Bounty target=_blank>Bounty</a>ï½œ|;
+# ã®ä¸‹ã«
+print qq|<a href=$cgiurl?mode=list&order=GetBounty target=_blank>GetBounty</a>ï½œ|;
+# ã‚’è¿½åŠ ã—
+print qq|<a href=$cgiurl?mode=list&order=Rate target=_blank>Rate</a>ï½œ|;
+# ã®ä¸‹ã«
+print qq|<a href=$cgiurl?mode=list&order=Proceeds target=_blank>Proceeds</a>ï½œ|;
+# ã‚’è¿½åŠ ã—ã¾ã™
 
 
-# sos2.cgi‚Ì# Sub List In Order #‚Ì
+# sos2.cgiã®# Sub List In Order #ã®
 %order = ('ID',$id,'Name',$nm,'Rate',$rt,'Money',$mn,'Bounty',$rw,'Job',$jb);
-# ‚ğ
+# ã‚’
 %order = ('ID',$id,'Name',$nm,'Rate',$rt,'Money',$mn,'Bounty',$rw,'Job',$jb,'GetBounty',$tt,'Proceeds',$tt);
-# ‚É•ÏX‚µ
+# ã«å¤‰æ›´ã—
 next if $Fm{'order'} eq 'Bounty' && $sp !~ /Tf/;
-# ‚Ì‰º‚É
+# ã®ä¸‹ã«
 next if $Fm{'order'} eq 'GetBounty' && $sp !~ /Tf/;
 next if $Fm{'order'} eq 'Proceeds' && $sp !~ /Tv/;
-# ‚ğ’Ç‰Á‚µ‚Ü‚·
+# ã‚’è¿½åŠ ã—ã¾ã™
 
 
-# sos2.cgi‚Ì# Sub Find the Best Player #‚Ì
+# sos2.cgiã®# Sub Find the Best Player #ã®
 if ($mn > $bestmoney && $sp !~ /Pb/) { $rich = $nm; $rimg = $ig; $bestmoney = $mn }
-# ‚Ì‰º‚É
+# ã®ä¸‹ã«
 if ($tt > $bestgetbounty && $sp =~ /Tf/) { $getbounty = $nm; $gimg = $ig; $bestgetbounty = $tt }
 if ($tt > $bestproceeds && $sp =~ /Tv/ && $sp !~ /Pb/) { $proceeds = $nm; $pimg = $ig; $bestproceeds = $tt }
-# ‚ğ’Ç‰Á‚µ‚Ü‚·
+# ã‚’è¿½åŠ ã—ã¾ã™
 
 
-# sos2.cgi‚Ì# Sub Saga #‚Ì
-print qq|‚±‚Ì•¨Œê‚Í$hernam$hero‚Æ$ricnam$richA\n|;
-# ‚ğ
-print qq|‚±‚Ì•¨Œê‚Í$hernam$hero‚Æ$ricnam$rich‚Æ$getnam$getbounty‚Æ$prdnam$proceedsA\n|;
-# ‚É•ÏX‚µ
+# sos2.cgiã®# Sub Saga #ã®
+print qq|ã“ã®ç‰©èªã¯$hernam$heroã¨$ricnam$richã€\n|;
+# ã‚’
+print qq|ã“ã®ç‰©èªã¯$hernam$heroã¨$ricnam$richã¨$getnam$getbountyã¨$prdnam$proceedsã€\n|;
+# ã«å¤‰æ›´ã—
 print qq|$ricnam$rich| if $rich;
-# ‚Ì‰º‚É
+# ã®ä¸‹ã«
 print qq|</td>\n<td align=center>\n|;
 print qq|<img src=$imgdir$gimg width=$ig_wd height=$ig_ht><br>\n| if $gimg;
 print qq|$getnam$getbounty| if $getbounty;
 print qq|</td>\n<td align=center>\n|;
 print qq|<img src=$imgdir$pimg width=$ig_wd height=$ig_ht><br>\n| if $pimg;
 print qq|$prdnam$proceeds| if $proceeds;
-# ‚ğ’Ç‰Á‚µ‚Ü‚·
+# ã‚’è¿½åŠ ã—ã¾ã™
 
 
-# sos2.cgi‚Ì# Sub Player List #‚Ì
+# sos2.cgiã®# Sub Player List #ã®
 print qq|<tr><td colspan=12 bgcolor=$tblbdc><b><font color=$scdclr>$Fm{'order'}</font></b></td></tr>\n|;
-# ‚ğ
+# ã‚’
 print qq|<tr><td colspan=13 bgcolor=$tblbdc><b><font color=$scdclr>$Fm{'order'}</font></b></td></tr>\n|;
-# ‚É•ÏX‚µ
-print qq|<td colspan=3><b><font color=$scdclr>ƒRƒƒ“ƒg</font></b></td></tr>\n|;
-# ‚ğ
-print qq|<td colspan=4><b><font color=$scdclr>ƒRƒƒ“ƒg</font></b></td></tr>\n|;
-# ‚É•ÏX‚µ
-foreach ('‹êŠ','ID','U','–h','Ÿ','•‰','E','€','ó','Š‹à','•ñ§‹à','ƒAƒCƒeƒ€') {
-# ‚ğ
-if ($Fm{'order'} eq 'Proceeds') {$ttname = '”„ã‹à'}
-elsif ($Fm{'order'} eq 'Bounty' || $Fm{'order'} eq 'GetBounty' || $Fm{'order'} eq 'Rate') {$ttname = 'Šl“¾‹à'}
-else {$ttname = 'Šl^”„'}
-foreach ('‹êŠ','ID','U','–h','Ÿ','•‰','E','€','ó','Š‹à','•ñ§‹à',$ttname,'ƒAƒCƒeƒ€') {
-# ‚É•ÏX‚µ
+# ã«å¤‰æ›´ã—
+print qq|<td colspan=3><b><font color=$scdclr>ã‚³ãƒ¡ãƒ³ãƒˆ</font></b></td></tr>\n|;
+# ã‚’
+print qq|<td colspan=4><b><font color=$scdclr>ã‚³ãƒ¡ãƒ³ãƒˆ</font></b></td></tr>\n|;
+# ã«å¤‰æ›´ã—
+foreach ('å±…å ´æ‰€','ID','æ”»','é˜²','å‹','è² ','æ®º','æ­»','çŠ¶','æ‰€æŒé‡‘','å ±å¥¨é‡‘','ã‚¢ã‚¤ãƒ†ãƒ ') {
+# ã‚’
+if ($Fm{'order'} eq 'Proceeds') {$ttname = 'å£²ä¸Šé‡‘'}
+elsif ($Fm{'order'} eq 'Bounty' || $Fm{'order'} eq 'GetBounty' || $Fm{'order'} eq 'Rate') {$ttname = 'ç²å¾—é‡‘'}
+else {$ttname = 'ç²ï¼å£²'}
+foreach ('å±…å ´æ‰€','ID','æ”»','é˜²','å‹','è² ','æ®º','æ­»','çŠ¶','æ‰€æŒé‡‘','å ±å¥¨é‡‘',$ttname,'ã‚¢ã‚¤ãƒ†ãƒ ') {
+# ã«å¤‰æ›´ã—
 print qq|<td colspan=3>$cm_</td></tr><tr bgcolor=$ltclr>\n<td>|;
-# ‚ğ
+# ã‚’
 print qq|<td colspan=4>$cm_</td></tr><tr bgcolor=$ltclr>\n<td>|;
-# ‚É•ÏX‚µ
+# ã«å¤‰æ›´ã—
 if ($rw >= $def_rp) { print qq|<td><font color=$optclr><b>$rw\G</b></font></td>\n| } else { print qq|<td>$rw\G</td>\n| }
-# ‚Ì‰º‚É
+# ã®ä¸‹ã«
 print qq|<td>$tt\G</td>\n|;
-# ‚ğ’Ç‰Á‚µ‚Ü‚·
+# ã‚’è¿½åŠ ã—ã¾ã™
 
 
-# ˆÈã‚Å‰ü‘¢Š®—¹‚Å‚·
+# ä»¥ä¸Šã§æ”¹é€ å®Œäº†ã§ã™

@@ -1,22 +1,22 @@
 @charset "Shift-JIS";
 
-/* Šî–{İ’è */
+/* åŸºæœ¬è¨­å®š */
 * {margin:0; padding:0; border:0;}
 
 body {
 	width:100%;
-	font-family:"Hiragino Kaku Gothic Pro","‚l‚r ‚oƒSƒVƒbƒN",sans-serif;
+	font-family:"Hiragino Kaku Gothic Pro","ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯",sans-serif;
 	background-color:#fff;
 	color:#000;
 	font-size:100%;
 	line-height:1.2;
-	text-align:center; /* IE‘Îô */
+	text-align:center; /* IEå¯¾ç­– */
 }
 
 div#body {
 	margin :1em auto;
 	width:90%;
-	text-align:left; /* IE‘Îô */
+	text-align:left; /* IEå¯¾ç­– */
 }
 
 del {text-decoration:line-through;}
@@ -25,7 +25,7 @@ em {font-style:normal; font-weight:bold;}
 
 ul,ol,li {list-style:none;}
 
-/* ŒÂ•Êİ’è */
+/* å€‹åˆ¥è¨­å®š */
 h1 {
 	padding:0.3em 0;
 	font-size:140%;

@@ -1,208 +1,208 @@
-############ ’Ş‚èƒVƒXƒeƒ€ Ver 1.0 ##############################
+############ é‡£ã‚Šã‚·ã‚¹ãƒ†ãƒ  Ver 1.0 ##############################
 
-# ---------- à–¾ ----------------------------------------------
-# ’Ş‚èŠÆ(—áF’Ş‚èŠÆ¢00300300Rd)‚ğ‚Á‚Ä‚¢‚éƒvƒŒƒCƒ„[‚ÍA
-# ’Ş‚è‚ğ‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·
-# ’Ş‚èŠÆ‚ÌƒAƒCƒeƒ€ƒf[ƒ^‚Í“Áê‚ÅA”’l‚Ì‰E4Œ…‚ğg—p‰Â”\‰ñ”‚Æ‚µ‚Ä‚¢‚Ü‚·
-# ã‚Ì—á‚Ìê‡A300‰ñg—p‰Â”\‚Æ‚¢‚¤‚±‚Æ‚É‚È‚è‚Ü‚·
-# •¡”‰ñ’Tõ(http://www2k.biglobe.ne.jp/~yamahon/sos2/loopfind.txt)‚Å‚Ì
-# ‹Lq‚ğ—˜—p‚µ‚Ü‚·‚Ì‚ÅA•¡”‰ñ’Tõ‚ğæ‚É“±“ü‚µ‚Ä‚­‚¾‚³‚¢
+# ---------- èª¬æ˜ ----------------------------------------------
+# é‡£ã‚Šç«¿(ä¾‹ï¼šé‡£ã‚Šç«¿â–³00300300Rd)ã‚’æŒã£ã¦ã„ã‚‹ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã¯ã€
+# é‡£ã‚Šã‚’ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™
+# é‡£ã‚Šç«¿ã®ã‚¢ã‚¤ãƒ†ãƒ ãƒ‡ãƒ¼ã‚¿ã¯ç‰¹æ®Šã§ã€æ•°å€¤ã®å³4æ¡ã‚’ä½¿ç”¨å¯èƒ½å›æ•°ã¨ã—ã¦ã„ã¾ã™
+# ä¸Šã®ä¾‹ã®å ´åˆã€300å›ä½¿ç”¨å¯èƒ½ã¨ã„ã†ã“ã¨ã«ãªã‚Šã¾ã™
+# è¤‡æ•°å›æ¢ç´¢(http://www2k.biglobe.ne.jp/~yamahon/sos2/loopfind.txt)ã§ã®
+# è¨˜è¿°ã‚’åˆ©ç”¨ã—ã¾ã™ã®ã§ã€è¤‡æ•°å›æ¢ç´¢ã‚’å…ˆã«å°å…¥ã—ã¦ãã ã•ã„
 # --------------------------------------------------------------
 
-# ---------- XV—š—ğ ------------------------------------------
-# Ver1.0   11/09/2003   ŒöŠJ
+# ---------- æ›´æ–°å±¥æ­´ ------------------------------------------
+# Ver1.0   11/09/2003   å…¬é–‹
 # --------------------------------------------------------------
 
 
-# sos2.cgi‚Ìİ’è€–Ú‚É
-$fishdat = './fish.cgi';	# ’Ş‚ê‚éƒAƒCƒeƒ€‚Ìƒf[ƒ^ƒtƒ@ƒCƒ‹
-# ‚ğ’Ç‰Á‚µ‚Ü‚·
+# sos2.cgiã®è¨­å®šé …ç›®ã«
+$fishdat = './fish.cgi';	# é‡£ã‚Œã‚‹ã‚¢ã‚¤ãƒ†ãƒ ã®ãƒ‡ãƒ¼ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«
+# ã‚’è¿½åŠ ã—ã¾ã™
 
 
-# ufs2.cgi‚Ìİ’è€–Ú‚É
-$fishdat = './fish.cgi';	# ’Ş‚ê‚éƒAƒCƒeƒ€‚Ìƒf[ƒ^ƒtƒ@ƒCƒ‹(sos2.cgi‚Æ“¯‚¶‚É‚µ‚Ä‚­‚¾‚³‚¢)
-$fbitdat = './fbit.cgi';	# ’Ş‚ê‚éƒAƒCƒeƒ€‚Ì•â[Œ³ƒtƒ@ƒCƒ‹
-# ‚ğ’Ç‰Á‚µ‚Ü‚·
+# ufs2.cgiã®è¨­å®šé …ç›®ã«
+$fishdat = './fish.cgi';	# é‡£ã‚Œã‚‹ã‚¢ã‚¤ãƒ†ãƒ ã®ãƒ‡ãƒ¼ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«(sos2.cgiã¨åŒã˜ã«ã—ã¦ãã ã•ã„)
+$fbitdat = './fbit.cgi';	# é‡£ã‚Œã‚‹ã‚¢ã‚¤ãƒ†ãƒ ã®è£œå……å…ƒãƒ•ã‚¡ã‚¤ãƒ«
+# ã‚’è¿½åŠ ã—ã¾ã™
 
 
-# •Ï”$fishdat,$fbitdat‚É‘ã“ü‚³‚ê‚½ƒtƒ@ƒCƒ‹(‚±‚Ìê‡Afish.cgi,fbit.cgi)‚ğì¬‚µ‚Ü‚·
-# (ƒp[ƒ~ƒbƒVƒ‡ƒ“’l‚Í’Êí666)
-# $itmdat(itm.dat),$bitdat(bit.dat)‚Æ—v—Ì‚Í“¯‚¶‚Å‚·
+# å¤‰æ•°$fishdat,$fbitdatã«ä»£å…¥ã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«(ã“ã®å ´åˆã€fish.cgi,fbit.cgi)ã‚’ä½œæˆã—ã¾ã™
+# (ãƒ‘ãƒ¼ãƒŸãƒƒã‚·ãƒ§ãƒ³å€¤ã¯é€šå¸¸666)
+# $itmdat(itm.dat),$bitdat(bit.dat)ã¨è¦é ˜ã¯åŒã˜ã§ã™
 
 
-# sos2.cgi‚Ì# Main Program #‚Ì
+# sos2.cgiã®# Main Program #ã®
 if ($Fm{'mode'} eq 'find_item')	{ &play_form	}
-# ‚Ì‰º‚É
+# ã®ä¸‹ã«
 if ($Fm{'mode'} eq 'fishing')	{ &play_form	}
-# ‚ğ’Ç‰Á‚µ‚Ü‚·
+# ã‚’è¿½åŠ ã—ã¾ã™
 
 
-# sos2.cgi‚Ì# Sub Play Form #‚Ì
+# sos2.cgiã®# Sub Play Form #ã®
 &find_item   if $Fm{'mode'} eq 'find_item';
-# ‚Ì‰º‚É
+# ã®ä¸‹ã«
 &find_item   if $Fm{'mode'} eq 'fishing';
-# ‚ğ’Ç‰Á‚µ‚Ü‚·
+# ã‚’è¿½åŠ ã—ã¾ã™
 
 
-# sos2.cgi‚Ì# Sub Normal Action #‚Ì
+# sos2.cgiã®# Sub Normal Action #ã®
 if ($cantfind && $mysp !~ /Nf/) {
-	&input('radio','mode','find_item','',"ƒAƒCƒeƒ€’Tõ@\n");
-	&input('text','n','0',' size="2" disabled',"‰ñ<br>\n");
+	&input('radio','mode','find_item','',"ã‚¢ã‚¤ãƒ†ãƒ æ¢ç´¢ã€€\n");
+	&input('text','n','0',' size="2" disabled',"å›<br>\n");
 	}
 elsif ($mysp !~ /Nf/) {
-	&input('radio','mode','find_item',' checked',"ƒAƒCƒeƒ€’Tõ@\n");
-	&input('text','n',"$hpn",' size="2"',"‰ñ<br>\n");
+	&input('radio','mode','find_item',' checked',"ã‚¢ã‚¤ãƒ†ãƒ æ¢ç´¢ã€€\n");
+	&input('text','n',"$hpn",' size="2"',"å›<br>\n");
 	}
-# ‚ğ
+# ã‚’
 &splititem('i');
-foreach (@items) {$fishing = 1 if (split(/¢/))[1] =~ /Rd/}
+foreach (@items) {$fishing = 1 if (split(/â–³/))[1] =~ /Rd/}
 if ($cantfind && $mysp !~ /Nf/) {
-	&input('radio','mode','find_item','',"ƒAƒCƒeƒ€’Tõ@\n");
-	&input('text','n','0',' size="2" disabled',"‰ñ<br>\n");
+	&input('radio','mode','find_item','',"ã‚¢ã‚¤ãƒ†ãƒ æ¢ç´¢ã€€\n");
+	&input('text','n','0',' size="2" disabled',"å›<br>\n");
 	if ($fishing) {
-		&input('radio','mode','fishing','',"ƒAƒCƒeƒ€‚ğ’Ş‚é@\n");
-		&input('text','n2','0',' size="2" disabled',"‰ñ<br>\n");
+		&input('radio','mode','fishing','',"ã‚¢ã‚¤ãƒ†ãƒ ã‚’é‡£ã‚‹ã€€\n");
+		&input('text','n2','0',' size="2" disabled',"å›<br>\n");
 		}
 	}
 elsif ($mysp !~ /Nf/) {
-	&input('radio','mode','find_item',' checked',"ƒAƒCƒeƒ€’Tõ@\n");
-	&input('text','n',"$hpn",' size="2"',"‰ñ<br>\n");
+	&input('radio','mode','find_item',' checked',"ã‚¢ã‚¤ãƒ†ãƒ æ¢ç´¢ã€€\n");
+	&input('text','n',"$hpn",' size="2"',"å›<br>\n");
 	if ($fishing) {
-		&input('radio','mode','fishing','',"ƒAƒCƒeƒ€‚ğ’Ş‚é@\n");
-		&input('text','n2',"$hpn",' size="2"',"‰ñ<br>\n");
+		&input('radio','mode','fishing','',"ã‚¢ã‚¤ãƒ†ãƒ ã‚’é‡£ã‚‹ã€€\n");
+		&input('text','n2',"$hpn",' size="2"',"å›<br>\n");
 		}
 	}
-# ‚É•ÏX‚µ‚Ü‚·
+# ã«å¤‰æ›´ã—ã¾ã™
 
 
-# sos2.cgi‚Ì# Sub Find Item #‚Ì
-if (@items >= $xi) { push (@msg,'‚±‚êˆÈã‚Í‚Ä‚Ü‚¹‚ñ');return }
-# ‚Ì‰º‚É
+# sos2.cgiã®# Sub Find Item #ã®
+if (@items >= $xi) { push (@msg,'ã“ã‚Œä»¥ä¸Šã¯æŒã¦ã¾ã›ã‚“');return }
+# ã®ä¸‹ã«
 if ($Fm{'mode'} eq 'fishing') {
 	foreach (0 .. $#items) {
-		($Ritem,$Rsts,$Rprice) = split(/¢/,$items[$_]);
+		($Ritem,$Rsts,$Rprice) = split(/â–³/,$items[$_]);
 		if ($Rsts =~ /Rd/) {$rod = $_; $fishtime = int(substr($Rsts,4,4)); last}
 		}
-	if ($Rsts !~ /Rd/) {push (@msg,'’Ş‚èŠÆ‚ğ‚Á‚Ä‚¢‚Ü‚¹‚ñ'); return}
+	if ($Rsts !~ /Rd/) {push (@msg,'é‡£ã‚Šç«¿ã‚’æŒã£ã¦ã„ã¾ã›ã‚“'); return}
 	$Fm{'n'} = $Fm{'n2'}; $itmdat = $fishdat;
-	@find = ('”­Œ©‚µ','‚İ‚Â‚¯','‚İ‚Â‚©‚è');
+	@find = ('ç™ºè¦‹ã—','ã¿ã¤ã‘','ã¿ã¤ã‹ã‚Š');
 	}
-else {@find = ('’Ş‚èã‚°','’Ş‚èã‚°','’Ş‚ê')}
-# ‚ğ’Ç‰Á‚µ
-if (@items + @gotitem >= $xi) {&findlast; push (@msg,"‚±‚êˆÈã‚Í‚Ä‚Ü‚¹‚ñ"); return}
-# ‚Ì‰º‚É
-if ($Fm{'mode'} eq 'fishing' && $fishtime < 1) {splice(@items,$fp,1); &findlast; push (@msg,"$Ritem‚ª‰ó‚ê‚Ü‚µ‚½"); return}
+else {@find = ('é‡£ã‚Šä¸Šã’','é‡£ã‚Šä¸Šã’','é‡£ã‚Œ')}
+# ã‚’è¿½åŠ ã—
+if (@items + @gotitem >= $xi) {&findlast; push (@msg,"ã“ã‚Œä»¥ä¸Šã¯æŒã¦ã¾ã›ã‚“"); return}
+# ã®ä¸‹ã«
+if ($Fm{'mode'} eq 'fishing' && $fishtime < 1) {splice(@items,$fp,1); &findlast; push (@msg,"$RitemãŒå£Šã‚Œã¾ã—ãŸ"); return}
 $fishtime--;
-# ‚ğ’Ç‰Á‚µ‚Ü‚·
+# ã‚’è¿½åŠ ã—ã¾ã™
 
 
-# sos2.cgi‚ÌSub Find Loop #‚Ì
-if ($def_xs && length($is) > $def_xs - 1) { push (@msg,'ƒXƒeƒ‰ƒcƒBƒI‚ğ”­Œ©‚µ‚Ü‚µ‚½‚ªAŠƒI[ƒo[‚Ìˆ×Ì‚Ä‚Ü‚µ‚½');return }
-# ‚ğ
-if ($def_xs && length($is) > $def_xs - 1) { push (@msg,"ƒXƒeƒ‰ƒcƒBƒI‚ğ$find[0]‚Ü‚µ‚½‚ªAŠƒI[ƒo[‚Ìˆ×Ì‚Ä‚Ü‚µ‚½");return }
-# ‚É•ÏX‚µ
-push (@msg,"<img src=$imgdir$itsrnd$def_jg width=$st_wd height=$st_ht> $itn[$itsrnd]‚ÌƒXƒeƒ‰ƒcƒBƒI‚ğ”­Œ©‚µ‚Ü‚µ‚½");
-# ‚ğ
-push (@msg,"<img src=$imgdir$itsrnd$def_jg width=$st_wd height=$st_ht> $itn[$itsrnd]‚ÌƒXƒeƒ‰ƒcƒBƒI‚ğ$find[0]‚Ü‚µ‚½");
-# ‚É•ÏX‚µ
-if ($idt !~ /Gl/) {push (@gotitem,"$inm¢$idt"); push (@msg,"$inm‚ğ‚İ‚Â‚¯‚Ü‚µ‚½")}
-# ‚ğ
-if ($idt !~ /Gl/) {push (@gotitem,"$inm¢$idt"); push (@msg,"$inm‚ğ$find[1]‚Ü‚µ‚½")}
-# ‚É•ÏX‚µ‚Ü‚·
+# sos2.cgiã®Sub Find Loop #ã®
+if ($def_xs && length($is) > $def_xs - 1) { push (@msg,'ã‚¹ãƒ†ãƒ©ãƒ„ã‚£ã‚ªã‚’ç™ºè¦‹ã—ã¾ã—ãŸãŒã€æ‰€æŒã‚ªãƒ¼ãƒãƒ¼ã®ç‚ºæ¨ã¦ã¾ã—ãŸ');return }
+# ã‚’
+if ($def_xs && length($is) > $def_xs - 1) { push (@msg,"ã‚¹ãƒ†ãƒ©ãƒ„ã‚£ã‚ªã‚’$find[0]ã¾ã—ãŸãŒã€æ‰€æŒã‚ªãƒ¼ãƒãƒ¼ã®ç‚ºæ¨ã¦ã¾ã—ãŸ");return }
+# ã«å¤‰æ›´ã—
+push (@msg,"<img src=$imgdir$itsrnd$def_jg width=$st_wd height=$st_ht> $itn[$itsrnd]ã®ã‚¹ãƒ†ãƒ©ãƒ„ã‚£ã‚ªã‚’ç™ºè¦‹ã—ã¾ã—ãŸ");
+# ã‚’
+push (@msg,"<img src=$imgdir$itsrnd$def_jg width=$st_wd height=$st_ht> $itn[$itsrnd]ã®ã‚¹ãƒ†ãƒ©ãƒ„ã‚£ã‚ªã‚’$find[0]ã¾ã—ãŸ");
+# ã«å¤‰æ›´ã—
+if ($idt !~ /Gl/) {push (@gotitem,"$inmâ–³$idt"); push (@msg,"$inmã‚’ã¿ã¤ã‘ã¾ã—ãŸ")}
+# ã‚’
+if ($idt !~ /Gl/) {push (@gotitem,"$inmâ–³$idt"); push (@msg,"$inmã‚’$find[1]ã¾ã—ãŸ")}
+# ã«å¤‰æ›´ã—ã¾ã™
 
 
-# sos2.cgi‚Ì# Sub Find Last #‚Ì
-push (@msg,"$money‰~‚ğ‚İ‚Â‚¯‚Ü‚µ‚½") if $money;
-push (@msg,"‰½‚à‚İ‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½") if !$money && !@gotitem;
-# ‚ğ
-push (@msg,"$money‰~‚ğ$find[1]‚Ü‚µ‚½") if $money;
-push (@msg,"‰½‚à$find[2]‚Ü‚¹‚ñ‚Å‚µ‚½") if !$money && !@gotitem;
+# sos2.cgiã®# Sub Find Last #ã®
+push (@msg,"$moneyå††ã‚’ã¿ã¤ã‘ã¾ã—ãŸ") if $money;
+push (@msg,"ä½•ã‚‚ã¿ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸ") if !$money && !@gotitem;
+# ã‚’
+push (@msg,"$moneyå††ã‚’$find[1]ã¾ã—ãŸ") if $money;
+push (@msg,"ä½•ã‚‚$find[2]ã¾ã›ã‚“ã§ã—ãŸ") if !$money && !@gotitem;
 if ($Fm{'mode'} eq 'fishing' && $fishtime >= 1) {
-	$items[$rod] = sprintf("$Ritem¢%04d%04d%s",substr($Rsts,0,4),$fishtime,substr($Rsts,8));
-	$items[$rod] .= "¢$Rprice" if $Rprice;
+	$items[$rod] = sprintf("$Ritemâ–³%04d%04d%s",substr($Rsts,0,4),$fishtime,substr($Rsts,8));
+	$items[$rod] .= "â–³$Rprice" if $Rprice;
 	}
-# ‚É•ÏX‚µ‚Ü‚·
+# ã«å¤‰æ›´ã—ã¾ã™
 
 
-# ufs2.cgi‚Ì
+# ufs2.cgiã®
 if ($Fm{'mode'} eq 'edit_item')      { &edit_item      }
-# ‚Ì‰º‚É
+# ã®ä¸‹ã«
 if ($Fm{'mode'} eq 'edit_item2')     { &edit_item      }
-# ‚ğ’Ç‰Á‚µ
+# ã‚’è¿½åŠ ã—
 if ($Fm{'mode'} eq 'add_item')       { &add_item       }
-# ‚Ì‰º‚É
+# ã®ä¸‹ã«
 if ($Fm{'mode'} eq 'add_item2')      { &add_item       }
-# ‚ğ’Ç‰Á‚µ
+# ã‚’è¿½åŠ ã—
 if ($Fm{'mode'} eq 're_item')        { &re_item        }
-# ‚Ì‰º‚É
+# ã®ä¸‹ã«
 if ($Fm{'mode'} eq 're_item2')       { &re_item        }
-# ‚ğ’Ç‰Á‚µ
+# ã‚’è¿½åŠ ã—
 if ($Fm{'mode'} eq 'adding_item')    { &adding_item    }
-# ‚Ì‰º‚É
+# ã®ä¸‹ã«
 if ($Fm{'mode'} eq 'adding_item2')   { &adding_item    }
-# ‚ğ’Ç‰Á‚µ‚Ü‚·
+# ã‚’è¿½åŠ ã—ã¾ã™
 
 
-# ufs2.cgi‚Ì# Sub Admin #‚Ì
-print qq|<input type=radio name=mode value=edit_item>ƒAƒCƒeƒ€İ’è<br>\n|;
-print qq|<input type=radio name=mode value=add_item>ƒAƒCƒeƒ€•â[<br>\n|;
-# ‚Ì‰º‚É
-print qq|<input type=radio name=mode value=edit_item2>’Ş‚èƒAƒCƒeƒ€İ’è<br>\n|;
-print qq|<input type=radio name=mode value=add_item2>’Ş‚èƒAƒCƒeƒ€•â[<br>\n|;
-# ‚ğ’Ç‰Á‚µ‚Ü‚·
+# ufs2.cgiã®# Sub Admin #ã®
+print qq|<input type=radio name=mode value=edit_item>ã‚¢ã‚¤ãƒ†ãƒ è¨­å®š<br>\n|;
+print qq|<input type=radio name=mode value=add_item>ã‚¢ã‚¤ãƒ†ãƒ è£œå……<br>\n|;
+# ã®ä¸‹ã«
+print qq|<input type=radio name=mode value=edit_item2>é‡£ã‚Šã‚¢ã‚¤ãƒ†ãƒ è¨­å®š<br>\n|;
+print qq|<input type=radio name=mode value=add_item2>é‡£ã‚Šã‚¢ã‚¤ãƒ†ãƒ è£œå……<br>\n|;
+# ã‚’è¿½åŠ ã—ã¾ã™
 
 
-# ufs2.cgi‚Ì# Sub Edit Item #‚Ì
+# ufs2.cgiã®# Sub Edit Item #ã®
 @bitlines = &opendat($bitdat);
-# ‚ğ
+# ã‚’
 if ($Fm{'mode'} eq 'edit_item') {@bitlines = &opendat($bitdat)}
 else {@bitlines = &opendat($fbitdat)}
-# ‚É•ÏX‚µ
+# ã«å¤‰æ›´ã—
 &table_bottom('re_item');
-# ‚ğ
+# ã‚’
 if ($Fm{'mode'} eq 'edit_item') {&table_bottom('re_item')}
 else {&table_bottom('re_item2')}
-# ‚É•ÏX‚µ‚Ü‚·
+# ã«å¤‰æ›´ã—ã¾ã™
 
 
-# ufs2.cgi‚Ì# Sub Re Item #‚Ì
+# ufs2.cgiã®# Sub Re Item #ã®
 @bitlines = &opendat($bitdat);
-# ‚ğ
+# ã‚’
 if ($Fm{'mode'} eq 're_item') {@bitlines = &opendat($bitdat)}
 else {@bitlines = &opendat($fbitdat)}
-# ‚É•ÏX‚µ
+# ã«å¤‰æ›´ã—
 &writedat($bitdat,@newlines);
-# ‚ğ
+# ã‚’
 if ($Fm{'mode'} eq 're_item') {&writedat($bitdat,@newlines)}
 else {&writedat($fbitdat,@newlines)}
-# ‚É•ÏX‚µ‚Ü‚·
+# ã«å¤‰æ›´ã—ã¾ã™
 
 
-# ufs2.cgi‚Ì# Sub Add Item #‚Ì
+# ufs2.cgiã®# Sub Add Item #ã®
 @bitlines = &opendat($bitdat);
 @itmlines = &opendat($itmdat);
-# ‚ğ
+# ã‚’
 if ($Fm{'mode'} eq 'add_item') {@bitlines = &opendat($bitdat); @itmlines = &opendat($itmdat)}
 else {@bitlines = &opendat($fbitdat); @itmlines = &opendat($fishdat)}
-# ‚É•ÏX‚µ
+# ã«å¤‰æ›´ã—
 &table_bottom('adding_item');
-# ‚ğ
+# ã‚’
 if ($Fm{'mode'} eq 'add_item') {&table_bottom('adding_item')}
 else {&table_bottom('adding_item2')}
-# ‚É•ÏX‚µ‚Ü‚·
+# ã«å¤‰æ›´ã—ã¾ã™
 
 
-# ufs2.cgi‚Ì# Sub Adding Item #‚Ì
+# ufs2.cgiã®# Sub Adding Item #ã®
 @itmlines = &opendat($itmdat);
-# ‚ğ
+# ã‚’
 if ($Fm{'mode'} eq 'adding_item') {@itmlines = &opendat($itmdat)}
 else {@itmlines = &opendat($fishdat)}
-# ‚É•ÏX‚µ
+# ã«å¤‰æ›´ã—
 &writedat($itmdat,@items);
-# ‚ğ
+# ã‚’
 if ($Fm{'mode'} eq 'adding_item') {&writedat($itmdat,@items)}
 else {&writedat($fishdat,@items)}
-# ‚É•ÏX‚µ‚Ü‚·
+# ã«å¤‰æ›´ã—ã¾ã™
 
 
-# ˆÈã‚Å‰ü‘¢Š®—¹‚Å‚·
+# ä»¥ä¸Šã§æ”¹é€ å®Œäº†ã§ã™

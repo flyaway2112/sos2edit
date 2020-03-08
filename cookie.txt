@@ -1,38 +1,38 @@
-############ �N�b�L�[�I�� Ver 1.0 ##############################
+############ クッキー選択 Ver 1.0 ##############################
 
-# ---------- ���� ----------------------------------------------
-# ���񃍃O�C�����̂��߂Ɏ����Ń��[�U�[��񂪋L�^�����
-# �N�b�L�[���L�^���邩�ǂ����I���ł��܂�
-# ���p�̃p�\�R���Ń��O�C�����郆�[�U�[�̂��߂̂��̂ł�
+# ---------- 説明 ----------------------------------------------
+# 次回ログイン時のために自動でユーザー情報が記録される
+# クッキーを記録するかどうか選択できます
+# 共用のパソコンでログインするユーザーのためのものです
 # --------------------------------------------------------------
 
-# ---------- �X�V���� ------------------------------------------
-# Ver1.0   12/18/2003   ���J
+# ---------- 更新履歴 ------------------------------------------
+# Ver1.0   12/18/2003   公開
 # --------------------------------------------------------------
 
 
-# sos2.cgi��# Sub New Game #��
+# sos2.cgiの# Sub New Game #の
 print qq|</select></td></tr>\n|;
-# �̉���
-print qq|<tr><td colspan=2 align=center><input type="checkbox" name="ck" checked>�N�b�L�[��ۑ�</td></tr>\n|;
-# ��ǉ����܂�
+# の下に
+print qq|<tr><td colspan=2 align=center><input type="checkbox" name="ck" checked>クッキーを保存</td></tr>\n|;
+# を追加します
 
 
-# sos2.cgi��# Sub Continue Game #��
-print qq|<tr><td>4����ID</td><td><input type=password name=id value="$c_id"></td></tr>\n|;
-# �̉���
-print qq|<tr><td colspan=2 align=center><input type="checkbox" name="ck" checked>�N�b�L�[��ۑ�</td></tr>\n|;
-# ��ǉ����܂�
+# sos2.cgiの# Sub Continue Game #の
+print qq|<tr><td>4桁のID</td><td><input type=password name=id value="$c_id"></td></tr>\n|;
+# の下に
+print qq|<tr><td colspan=2 align=center><input type="checkbox" name="ck" checked>クッキーを保存</td></tr>\n|;
+# を追加します
 
 
-# sos2.cgi��# Sub Set Cookie #��
+# sos2.cgiの# Sub Set Cookie #の
 ($secg,$ming,$hourg,$mdayg,$mong,$yearg,$wdayg,$ydayg,$isdstg)
 	= gmtime(time + 90*24*60*60);
-# ��
+# を
 $cooktime = ($Fm{'ck'}) ? 90*24*60*60 : -1;
 ($secg,$ming,$hourg,$mdayg,$mong,$yearg,$wdayg,$ydayg,$isdstg)
 	= gmtime(time + $cooktime);
-# �ɕύX���܂�
+# に変更します
 
 
-# �ȏ�ŉ��������ł�
+# 以上で改造完了です

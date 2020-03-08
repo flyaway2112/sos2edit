@@ -1,51 +1,51 @@
-############ Å‹ß‚Ìo—ˆ– Ver 2.2 ##############################
+############ æœ€è¿‘ã®å‡ºæ¥äº‹ Ver 2.2 ##############################
 
-# ---------- à–¾ ----------------------------------------------
-# ƒgƒbƒvƒy[ƒW‚ÉÅ‹ß‹N‚«‚½o—ˆ–‚ğ•\¦‚·‚éƒVƒXƒeƒ€‚Å‚·
-# ”äŠr“I‰—p‚ªŒø‚­‚Æv‚¢‚Ü‚·
+# ---------- èª¬æ˜ ----------------------------------------------
+# ãƒˆãƒƒãƒ—ãƒšãƒ¼ã‚¸ã«æœ€è¿‘èµ·ããŸå‡ºæ¥äº‹ã‚’è¡¨ç¤ºã™ã‚‹ã‚·ã‚¹ãƒ†ãƒ ã§ã™
+# æ¯”è¼ƒçš„å¿œç”¨ãŒåŠ¹ãã¨æ€ã„ã¾ã™
 # --------------------------------------------------------------
 
-# ---------- XV—š—ğ ------------------------------------------
-# Ver2.2   08/22/2004   ’p‚¸‚©‚µ‚¢ƒXƒyƒ‹ƒ~ƒX‚ğC³
-# Ver2.1   11/08/2003   ×‚©‚¢‚Æ‚±‚ë‚ğC³
-# Ver2.0   06/20/2003   ‘S‘Ì“I‚ÉC³ ‘S‹L–•\¦‚ğ’Ç‰Á
-# Ver1.4   12/25/2002   Œë‰ğ‚ğµ‚­•\Œ»‚ğC³
-# Ver1.3   11/24/2002   Ver1.2‚Ìƒ~ƒX‚ğC³
-# Ver1.2   11/23/2002   ‹L˜^‚·‚éo—ˆ–‚ğ’Ç‰Á‚È‚Ç
-# Ver1.1   09/16/2002   ƒXƒeƒ‰‚ğ‘µ‚¦‚½‚Ì•\¦‚ğC³
-# Ver1.0   08/06/2002   ŒöŠJ
+# ---------- æ›´æ–°å±¥æ­´ ------------------------------------------
+# Ver2.2   08/22/2004   æ¥ãšã‹ã—ã„ã‚¹ãƒšãƒ«ãƒŸã‚¹ã‚’ä¿®æ­£
+# Ver2.1   11/08/2003   ç´°ã‹ã„ã¨ã“ã‚ã‚’ä¿®æ­£
+# Ver2.0   06/20/2003   å…¨ä½“çš„ã«ä¿®æ­£ å…¨è¨˜äº‹è¡¨ç¤ºã‚’è¿½åŠ 
+# Ver1.4   12/25/2002   èª¤è§£ã‚’æ‹›ãè¡¨ç¾ã‚’ä¿®æ­£
+# Ver1.3   11/24/2002   Ver1.2ã®ãƒŸã‚¹ã‚’ä¿®æ­£
+# Ver1.2   11/23/2002   è¨˜éŒ²ã™ã‚‹å‡ºæ¥äº‹ã‚’è¿½åŠ ãªã©
+# Ver1.1   09/16/2002   ã‚¹ãƒ†ãƒ©ã‚’æƒãˆãŸæ™‚ã®è¡¨ç¤ºã‚’ä¿®æ­£
+# Ver1.0   08/06/2002   å…¬é–‹
 # --------------------------------------------------------------
 
 
-# sos2.cgi‚Ìİ’è•”•ª‚ÉˆÈ‰º‚Ì€–Ú‚ğ’Ç‰Á‚µ‚Ü‚·
-# ---------- Å‹ß‚Ìo—ˆ–İ’è
-$ive_log = './event.cgi';	# Å‹ß‚Ìo—ˆ–‚ÌƒƒOƒtƒ@ƒCƒ‹
-$ive_max = 100;			# Å‹ß‚Ìo—ˆ–‚ÌÅ‘å‹L–”(ufs2.cgi‚Æ“¯‚¶‚É‚µ‚Ä‚­‚¾‚³‚¢)
-$ive_tmx = 10;			# ƒgƒbƒvƒy[ƒW‚É•\¦‚·‚éÅ‹ß‚Ìo—ˆ–‚Ì‹L–”
-$ive_rew = 100;			# ‚©‚¯‚½•ñ§‹à‚ª‚±‚êˆÈã‚¾‚Æ‹L˜^
-$ive_wid = 480;			# ‘S‹L–•\¦‚ÌƒEƒBƒ“ƒhƒE‚Ì‰¡ƒTƒCƒY
-$ive_hei = 320;			# ‘S‹L–•\¦‚ÌƒEƒBƒ“ƒhƒE‚ÌcƒTƒCƒY
+# sos2.cgiã®è¨­å®šéƒ¨åˆ†ã«ä»¥ä¸‹ã®é …ç›®ã‚’è¿½åŠ ã—ã¾ã™
+# ---------- æœ€è¿‘ã®å‡ºæ¥äº‹è¨­å®š
+$ive_log = './event.cgi';	# æœ€è¿‘ã®å‡ºæ¥äº‹ã®ãƒ­ã‚°ãƒ•ã‚¡ã‚¤ãƒ«
+$ive_max = 100;			# æœ€è¿‘ã®å‡ºæ¥äº‹ã®æœ€å¤§è¨˜äº‹æ•°(ufs2.cgiã¨åŒã˜ã«ã—ã¦ãã ã•ã„)
+$ive_tmx = 10;			# ãƒˆãƒƒãƒ—ãƒšãƒ¼ã‚¸ã«è¡¨ç¤ºã™ã‚‹æœ€è¿‘ã®å‡ºæ¥äº‹ã®è¨˜äº‹æ•°
+$ive_rew = 100;			# ã‹ã‘ãŸå ±å¥¨é‡‘ãŒã“ã‚Œä»¥ä¸Šã ã¨è¨˜éŒ²
+$ive_wid = 480;			# å…¨è¨˜äº‹è¡¨ç¤ºæ™‚ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®æ¨ªã‚µã‚¤ã‚º
+$ive_hei = 320;			# å…¨è¨˜äº‹è¡¨ç¤ºæ™‚ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ç¸¦ã‚µã‚¤ã‚º
 
 
-# ufs2.cgi‚Ìİ’è•”•ª‚É‚àˆÈ‰º‚Ì€–Ú‚ğ’Ç‰Á‚µ‚Ü‚·
-# ---------- Å‹ß‚Ìo—ˆ–İ’è
-$ive_log = './event.cgi';	# Å‹ß‚Ìo—ˆ–‚ÌƒƒOƒtƒ@ƒCƒ‹
-$ive_max = 100;			# Å‹ß‚Ìo—ˆ–‚ÌƒƒOs”(sos2.cgi‚Æ“¯‚¶‚É‚µ‚Ä‚­‚¾‚³‚¢)
+# ufs2.cgiã®è¨­å®šéƒ¨åˆ†ã«ã‚‚ä»¥ä¸‹ã®é …ç›®ã‚’è¿½åŠ ã—ã¾ã™
+# ---------- æœ€è¿‘ã®å‡ºæ¥äº‹è¨­å®š
+$ive_log = './event.cgi';	# æœ€è¿‘ã®å‡ºæ¥äº‹ã®ãƒ­ã‚°ãƒ•ã‚¡ã‚¤ãƒ«
+$ive_max = 100;			# æœ€è¿‘ã®å‡ºæ¥äº‹ã®ãƒ­ã‚°è¡Œæ•°(sos2.cgiã¨åŒã˜ã«ã—ã¦ãã ã•ã„)
 
 
-# •Ï”$ive_log‚É‘ã“ü‚³‚ê‚½‹ó‚Ìƒtƒ@ƒCƒ‹(‚±‚Ìê‡Aevent.cgi)‚ğì¬‚µ‚Ü‚·
-# (ƒp[ƒ~ƒbƒVƒ‡ƒ“’l‚Í’Êí666)
+# å¤‰æ•°$ive_logã«ä»£å…¥ã•ã‚ŒãŸç©ºã®ãƒ•ã‚¡ã‚¤ãƒ«(ã“ã®å ´åˆã€event.cgi)ã‚’ä½œæˆã—ã¾ã™
+# (ãƒ‘ãƒ¼ãƒŸãƒƒã‚·ãƒ§ãƒ³å€¤ã¯é€šå¸¸666)
 
 
-# sos2.cgi‚Ì# Main Program #‚Ì
+# sos2.cgiã®# Main Program #ã®
 &unlock;
-# ‚Ìã‚É
+# ã®ä¸Šã«
 if ($Fm{'mode'} eq 'event_list') {&header; &event_list}
-# ‚ğ’Ç‰Á‚µ‚Ü‚·
+# ã‚’è¿½åŠ ã—ã¾ã™
 
 
-# sos2.cgi‚ÉˆÈ‰º‚ÌƒTƒuƒ‹[ƒ`ƒ“‚ğ’Ç‰Á‚µ‚Ü‚·(ˆê”ÔÅŒã‚ğ„§)
-#########################   ‚±‚±‚©‚ç   #########################
+# sos2.cgiã«ä»¥ä¸‹ã®ã‚µãƒ–ãƒ«ãƒ¼ãƒãƒ³ã‚’è¿½åŠ ã—ã¾ã™(ä¸€ç•ªæœ€å¾Œã‚’æ¨å¥¨)
+#########################   ã“ã“ã‹ã‚‰   #########################
 # Sub Event #
 sub event {
 &get_time;
@@ -58,11 +58,11 @@ while (@events > $ive_max) {pop(@events)}
 # Sub Event View #
 sub event_view {
 @events = &opendat($ive_log);
-print "<center><b>Å‹ß‚Ìo—ˆ–</b>";
+print "<center><b>æœ€è¿‘ã®å‡ºæ¥äº‹</b>";
 print "[<a href=\"$cgiurl?mode=event_list\" target=\"event\" ";
 print "onClick=\"window.open('$cgiurl?mode=event_list','event',";
 print "'width=$ive_wid,height=$ive_hei,scrollbars=1');";
-print "return(false)\">‘S‹L–</a>]</center>\n<hr>\n";
+print "return(false)\">å…¨è¨˜äº‹</a>]</center>\n<hr>\n";
 foreach (0 .. $ive_tmx - 1) {
 	($ive_data,$ive_date) = split(/<>/,$events[$_]);
 	print "$ive_data<font color=\"#C0C0C0\">$ive_date</font><br>\n";
@@ -73,97 +73,97 @@ print "<hr>\n";
 # Sub Event List #
 sub event_list {
 $ive_all = @events = &opendat($ive_log);
-print "<div align=\"center\"><b>Å‹ß‚Ìo—ˆ–@‘S‹L–($ive_allŒ)</b>\n<hr>\n";
+print "<div align=\"center\"><b>æœ€è¿‘ã®å‡ºæ¥äº‹ã€€å…¨è¨˜äº‹($ive_allä»¶)</b>\n<hr>\n";
 foreach (@events) {
 	($ive_data,$ive_date) = split(/<>/);
 	print "$ive_data<font color=\"#C0C0C0\">$ive_date</font><br>\n";
 	}
 print "</div><hr>\n";
 }
-#########################   ‚±‚±‚Ü‚Å   #########################
+#########################   ã“ã“ã¾ã§   #########################
 
 
-# sos2.cgi‚Ì# Fight Sub #‚Ì
-if ($DIE && $Lr >= $def_rp)  { &fmsg('–J'); $Wm = $Lr; $Lr = 0 }
-# ‚ğ
+# sos2.cgiã®# Fight Sub #ã®
+if ($DIE && $Lr >= $def_rp)  { &fmsg('è¤’'); $Wm = $Lr; $Lr = 0 }
+# ã‚’
 if ($DIE && $Lr >= $def_rp)  {
-	if ($nm eq $Wn)	{&event("[$id]$Wn‚ª[$pid]$Ln‚ÉŸ—˜‚µA$Lr\G‚Ì•ñ§‹à‚ğè‚É“ü‚ê‚Ü‚µ‚½B")}
-	else		{&event("[$pid]$Wn‚ª[$id]$Ln‚ÉŸ—˜‚µA$Lr\G‚Ì•ñ§‹à‚ğè‚É“ü‚ê‚Ü‚µ‚½B")}
-	&fmsg('–J'); $Wm = $Lr; $Lr = 0;
+	if ($nm eq $Wn)	{&event("[$id]$WnãŒ[$pid]$Lnã«å‹åˆ©ã—ã€$Lr\Gã®å ±å¥¨é‡‘ã‚’æ‰‹ã«å…¥ã‚Œã¾ã—ãŸã€‚")}
+	else		{&event("[$pid]$WnãŒ[$id]$Lnã«å‹åˆ©ã—ã€$Lr\Gã®å ±å¥¨é‡‘ã‚’æ‰‹ã«å…¥ã‚Œã¾ã—ãŸã€‚")}
+	&fmsg('è¤’'); $Wm = $Lr; $Lr = 0;
 	}
-# ‚É•ÏX‚µ‚Ü‚·
+# ã«å¤‰æ›´ã—ã¾ã™
 
 
-# sos2.cgi‚Ì# Sub Make New #‚Ì
+# sos2.cgiã®# Sub Make New #ã®
 $Fm{'id'} = $id; &cookie_set; &play_form;
-# ‚ğ
-$Fm{'id'} = $id; &cookie_set; &event("[$id]$Fm{'name'}‚ªV‚µ‚­Q‰Á‚µ‚Ü‚µ‚½B"); &play_form;
-# ‚É•ÏX‚µ‚Ü‚·
+# ã‚’
+$Fm{'id'} = $id; &cookie_set; &event("[$id]$Fm{'name'}ãŒæ–°ã—ãå‚åŠ ã—ã¾ã—ãŸã€‚"); &play_form;
+# ã«å¤‰æ›´ã—ã¾ã™
 
 
-# sos2.cgi‚Ì# Sub Stellatio Complete ‚Ì
+# sos2.cgiã®# Sub Stellatio Complete ã®
 if ($sdtlines[$_] =~ /AT/) { $ak += $value }
 elsif ($sdtlines[$_] =~ /DF/) { $dd += $value }
 elsif ($sdtlines[$_] =~ /BG/) { $xi += $value }
 elsif ($sdtlines[$_] =~ /HP/) { $xp += $value }
-# ‚ğ
-if ($sdtlines[$_] =~ /AT/) { $ak += $value; $stl_nam = "UŒ‚—Í"}
-elsif ($sdtlines[$_] =~ /DF/) { $dd += $value; $stl_nam ="–hŒä—Í"}
-elsif ($sdtlines[$_] =~ /BG/) { $xi += $value; $stl_nam ="ŠãŒÀ"}
-elsif ($sdtlines[$_] =~ /HP/) { $xp += $value; $stl_nam ="‘Ì—Í"}
-# ‚É•ÏX‚µ
+# ã‚’
+if ($sdtlines[$_] =~ /AT/) { $ak += $value; $stl_nam = "æ”»æ’ƒåŠ›"}
+elsif ($sdtlines[$_] =~ /DF/) { $dd += $value; $stl_nam ="é˜²å¾¡åŠ›"}
+elsif ($sdtlines[$_] =~ /BG/) { $xi += $value; $stl_nam ="æ‰€æŒä¸Šé™"}
+elsif ($sdtlines[$_] =~ /HP/) { $xp += $value; $stl_nam ="ä½“åŠ›"}
+# ã«å¤‰æ›´ã—
 $fg = ''; &userout;
-# ‚Ì‰º‚É
-if ($stl_nam)	{&event("[$id]$nm‚ªƒXƒeƒ‰ƒcƒBƒI‚ğ‘µ‚¦A$stl_nam‚ÌƒXƒe[ƒ^ƒX‚ğã‚°‚Ü‚µ‚½B")}
-else		{&event("[$id]$nm‚ªƒXƒeƒ‰ƒcƒBƒI‚ğ‘µ‚¦AƒXƒLƒ‹‚ğè‚É“ü‚ê‚Ü‚µ‚½B")}
-# ‚ğ’Ç‰Á‚µ‚Ü‚·
+# ã®ä¸‹ã«
+if ($stl_nam)	{&event("[$id]$nmãŒã‚¹ãƒ†ãƒ©ãƒ„ã‚£ã‚ªã‚’æƒãˆã€$stl_namã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’ä¸Šã’ã¾ã—ãŸã€‚")}
+else		{&event("[$id]$nmãŒã‚¹ãƒ†ãƒ©ãƒ„ã‚£ã‚ªã‚’æƒãˆã€ã‚¹ã‚­ãƒ«ã‚’æ‰‹ã«å…¥ã‚Œã¾ã—ãŸã€‚")}
+# ã‚’è¿½åŠ ã—ã¾ã™
 
 
-# sos2.cgi‚Ì# Sub Find to Delete # ‚Ì
+# sos2.cgiã®# Sub Find to Delete # ã®
 if ($now > $tm && $ps ne $admpas) { unlink("$usrdir$id\.dat") }
-# ‚ğ
-if ($now > $tm && $ps ne $admpas) {&event("[$id]$nm‚ªŠúŒÀØ‚ê‚Åíœ‚³‚ê‚Ü‚µ‚½B"); unlink("$usrdir$id\.dat")}
-# ‚É•ÏX‚µ‚Ü‚·
+# ã‚’
+if ($now > $tm && $ps ne $admpas) {&event("[$id]$nmãŒæœŸé™åˆ‡ã‚Œã§å‰Šé™¤ã•ã‚Œã¾ã—ãŸã€‚"); unlink("$usrdir$id\.dat")}
+# ã«å¤‰æ›´ã—ã¾ã™
 
 
-# sos2.cgi‚Ì# Sub Delete After #‚Ì
+# sos2.cgiã®# Sub Delete After #ã®
 unlink("$usrdir$id\.dat");
-# ‚Ì‰º‚É
-&event("[$id]$nm‚ªƒLƒƒƒ‰‚ğíœ‚µ‚Ü‚µ‚½B");
-# ‚ğ’Ç‰Á‚µ‚Ü‚·
+# ã®ä¸‹ã«
+&event("[$id]$nmãŒã‚­ãƒ£ãƒ©ã‚’å‰Šé™¤ã—ã¾ã—ãŸã€‚");
+# ã‚’è¿½åŠ ã—ã¾ã™
 
 
-# sos2.cgi‚Ì# Sub Reward #‚Ì
-push (@msg,"$pnm‚É$Fm{'price'}\G‚Ì•ñ§‹à‚ğ‚©‚¯‚Ü‚µ‚½");
-# ‚Ì‰º‚É
-if ($Fm{'price'} => $ive_rew) {&event("[$pid]$pnm‚É$Fm{'price'}\G‚Ì•ñ§‹à‚ª‚©‚¯‚ç‚ê‚Ü‚µ‚½B")}
-# ‚ğ’Ç‰Á‚µ‚Ü‚·
+# sos2.cgiã®# Sub Reward #ã®
+push (@msg,"$pnmã«$Fm{'price'}\Gã®å ±å¥¨é‡‘ã‚’ã‹ã‘ã¾ã—ãŸ");
+# ã®ä¸‹ã«
+if ($Fm{'price'} => $ive_rew) {&event("[$pid]$pnmã«$Fm{'price'}\Gã®å ±å¥¨é‡‘ãŒã‹ã‘ã‚‰ã‚Œã¾ã—ãŸã€‚")}
+# ã‚’è¿½åŠ ã—ã¾ã™
 
 
-# sos2.cgi‚Ì# Sub Find Item #‚Ì
+# sos2.cgiã®# Sub Find Item #ã®
 &writedat($itmdat,@itemlines);
-# ‚Ì‰º‚É
-&event("[$id]$nm‚ª$inm‚ğŒ©‚Â‚¯‚Ü‚µ‚½B");
-# ‚ğ’Ç‰Á‚µ‚Ü‚·
+# ã®ä¸‹ã«
+&event("[$id]$nmãŒ$inmã‚’è¦‹ã¤ã‘ã¾ã—ãŸã€‚");
+# ã‚’è¿½åŠ ã—ã¾ã™
 
 
-# sos2.cgi‚Ì# Sub Fight #‚Ì
-push (@msg,"$item‚ª‰ó‚ê‚Ü‚µ‚½"); last;
-# ‚ğ
-push (@msg,"$item‚ª‰ó‚ê‚Ü‚µ‚½"); &event("[$id]$nm‚Ì$item‚ª‰ó‚ê‚Ü‚µ‚½B"); last;
-# ‚É•ÏX‚µ‚Ü‚·
+# sos2.cgiã®# Sub Fight #ã®
+push (@msg,"$itemãŒå£Šã‚Œã¾ã—ãŸ"); last;
+# ã‚’
+push (@msg,"$itemãŒå£Šã‚Œã¾ã—ãŸ"); &event("[$id]$nmã®$itemãŒå£Šã‚Œã¾ã—ãŸã€‚"); last;
+# ã«å¤‰æ›´ã—ã¾ã™
 
 
-# sos2.cgi‚Ì# Sub Fight #‚Ì
-&joinitem('iI'); &fmsg('’D');
-# ‚Ì‰º‚É
-if ($nm eq $Wn) {&event("[$id]$Wn‚ª[$pid]$Ln‚Ì$item‚ğ’D‚¢‚Ü‚µ‚½B")}
-else		{&event("[$pid]$Wn‚ª[$id]$Ln‚Ì$item‚ğ’D‚¢‚Ü‚µ‚½B")}
-# ‚ğ’Ç‰Á‚µ‚Ü‚·
+# sos2.cgiã®# Sub Fight #ã®
+&joinitem('iI'); &fmsg('å¥ª');
+# ã®ä¸‹ã«
+if ($nm eq $Wn) {&event("[$id]$WnãŒ[$pid]$Lnã®$itemã‚’å¥ªã„ã¾ã—ãŸã€‚")}
+else		{&event("[$pid]$WnãŒ[$id]$Lnã®$itemã‚’å¥ªã„ã¾ã—ãŸã€‚")}
+# ã‚’è¿½åŠ ã—ã¾ã™
 
 
-#ufs2.cgi‚ÉˆÈ‰º‚ÌƒTƒuƒ‹[ƒ`ƒ“‚ğ’Ç‰Á‚µ‚Ü‚·(ˆê”ÔÅŒã‚ğ„§)
-#########################   ‚±‚±‚©‚ç   #########################
+#ufs2.cgiã«ä»¥ä¸‹ã®ã‚µãƒ–ãƒ«ãƒ¼ãƒãƒ³ã‚’è¿½åŠ ã—ã¾ã™(ä¸€ç•ªæœ€å¾Œã‚’æ¨å¥¨)
+#########################   ã“ã“ã‹ã‚‰   #########################
 # Sub Event #
 sub event {
 &gettime;
@@ -172,27 +172,27 @@ unshift (@events,"$_[0]<>$date<>\n");
 while (@events > $ive_max) {pop(@events)}
 &writedat($ive_log,@events);
 }
-#########################   ‚±‚±‚Ü‚Å   #########################
+#########################   ã“ã“ã¾ã§   #########################
 
 
-# ufs2.cgi‚Ì# Sub Class Change #‚Ì
-print qq|<center>ƒNƒ‰ƒXƒ`ƒFƒ“ƒW‚µ‚Ü‚µ‚½B<br>¡‚©‚ç‚ ‚È‚½‚Í$jb‚Å‚·B<br>\n|;
-print qq|<a href=$cgiurl>–ß‚é</a></center><br>|;
-# ‚Ì‰º‚É
-&event("[$id]$nm‚ª$jb‚ÉƒNƒ‰ƒXƒ`ƒFƒ“ƒW‚µ‚Ü‚µ‚½B");
-# ‚ğ’Ç‰Á‚µ‚Ü‚·
+# ufs2.cgiã®# Sub Class Change #ã®
+print qq|<center>ã‚¯ãƒ©ã‚¹ãƒã‚§ãƒ³ã‚¸ã—ã¾ã—ãŸã€‚<br>ä»Šã‹ã‚‰ã‚ãªãŸã¯$jbã§ã™ã€‚<br>\n|;
+print qq|<a href=$cgiurl>æˆ»ã‚‹</a></center><br>|;
+# ã®ä¸‹ã«
+&event("[$id]$nmãŒ$jbã«ã‚¯ãƒ©ã‚¹ãƒã‚§ãƒ³ã‚¸ã—ã¾ã—ãŸã€‚");
+# ã‚’è¿½åŠ ã—ã¾ã™
 
 
-# ufs2.cgi‚Ì# Sub Job Change‚Ì
-print qq|<center>“]E‚µ‚Ü‚µ‚½B<br>¡‚©‚ç‚ ‚È‚½‚Í$jb‚Å‚·B<br>\n|;
-print qq|<a href=$cgiurl>–ß‚é</a></center><br>|;
-# ‚Ì‰º‚É
-&event("[$id]$nm‚ª$jb‚É“]E‚µ‚Ü‚µ‚½B");
-# ‚ğ’Ç‰Á‚µ‚Ü‚·
+# ufs2.cgiã®# Sub Job Changeã®
+print qq|<center>è»¢è·ã—ã¾ã—ãŸã€‚<br>ä»Šã‹ã‚‰ã‚ãªãŸã¯$jbã§ã™ã€‚<br>\n|;
+print qq|<a href=$cgiurl>æˆ»ã‚‹</a></center><br>|;
+# ã®ä¸‹ã«
+&event("[$id]$nmãŒ$jbã«è»¢è·ã—ã¾ã—ãŸã€‚");
+# ã‚’è¿½åŠ ã—ã¾ã™
 
 
-# ‚ ‚Æ‚Ísos2.cgi‚Ì# Sub Saga #‚Ì
+# ã‚ã¨ã¯sos2.cgiã®# Sub Saga #ã®
 print qq|<td valign=top><b>$intl</b><br><br>\n$info<br><br>\n|;
-# ‚Ì‰º‚ ‚½‚è‚É
+# ã®ä¸‹ã‚ãŸã‚Šã«
 &event_view;
-# ‚Æ’Ç‰Á‚·‚ê‚ÎA‰ü‘¢Š®—¹‚Å‚·
+# ã¨è¿½åŠ ã™ã‚Œã°ã€æ”¹é€ å®Œäº†ã§ã™
