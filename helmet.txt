@@ -1,0 +1,133 @@
+############ 兜装備システム Ver 2.1 ############################
+# 製作　Ｙ・Ｍ	[http://www3.to/eisenritter]
+# 改造　草餅	[http://www2k.biglobe.ne.jp/~yamahon/]
+
+# ※このシステムの著作権はＹ・Ｍさんが所有しています
+# この改造を取り入れた際にフッタのところに
+# print qq|Edit by Ｙ・Ｍ|;と入れ、
+# http://www3.to/eisenritterにリンクしてくださると、
+# 非常にうれしいそうです
+# Ｙ・Ｍさん公開の兜装備システムはこちらです
+# http://eisenritter.ddo.jp/~eisenritter/helm.txt
+
+# ---------- 説明 ----------------------------------------------
+# 装備品に"兜"を追加する方法です
+# 名前を変更することによって、靴など、他の装備品にも応用できます
+# 兜装備可の略字は"Hr"、兜装備済みの略字は"Qh"、オリジナル兜の略字は"Yh"です
+# 兜を作成できるスキルは"As"です。鎧、盾を作成するスキルと同じです
+# 兜・オリジナル兜を販売できるスキルは、それぞれ"Yr","Ym"です
+# --------------------------------------------------------------
+
+# ---------- 更新履歴 ------------------------------------------
+# Ver2.1   11/08/2003   細かいところを修正
+# Ver2.0   11/24/2002   兜の販売スキルを追加
+# Ver1.95  07/29/2002   オリジナル兜の作成を追加
+# Ver1.0   03/05/2002   公開
+# --------------------------------------------------------------
+
+
+# スクリプト中の全ての
+[swat]
+# を
+[swath]
+# に変更します(sos2.cgiに13個所 ufs2.cgiに1個所)
+
+
+# sos2.cgiの設定部分の
+$def_yt  = '○○の銀細工'; # 銀細工
+$def_bn4 = '0101';    # ボーナス
+$def_pc4 = 50;		  # 下取り価格
+# の下に
+$def_yh  = '○○の兜'; # 兜
+$def_bn5 = '0002';    # ボーナス
+$def_pc5 = 30;		  # 下取り価格
+# を追加します
+
+
+# sos2.cgiの# Sub Use After #の
+elsif ($sts =~ /(Jw|Yt)/)				   { &arm($1,'Qt') }
+# の下に
+elsif ($sts =~ /(Hr|Yh)/)				   { &arm($1,'Qh') }
+# を追加します
+
+
+# sos2.cgiの# Sub Fight #の
+elsif ($result == -1 && $sts =~ /Qa/ && $sts !~ /Ie/) { $breakitem = 1 }
+# の下に
+elsif ($result == -1 && $sts =~ /Qh/ && $sts !~ /Ie/) {$breakitem = 1}
+# を追加します
+
+
+# sos2.cgiの# Sub Blacksmith #の
+        if ($sp =~ /Ws/ && $sp =~ /As/ && $sp =~ /Sc/) { $trnd = int(rand(4)) }
+        elsif ($sp =~ /Ws/ && $sp =~ /As/) { $trnd = int(rand(3)) }
+        elsif ($sp =~ /Ws/ && $sp =~ /Sc/) { $trnd = (0,3)[int(rand(2))] }
+        elsif ($sp =~ /As/ && $sp =~ /Sc/) { $trnd = int(rand(3)) + 1 }
+        elsif ($sp =~ /Ws/) { $trnd = int(rand(1)) }
+        elsif ($sp =~ /As/) { $trnd = int(rand(2)) + 1 }
+        elsif ($sp =~ /Sc/) { $trnd = 3 }
+		$rnd = 0 if $sp =~ /Bp/;
+		if ($rnd <= $def_pr) {
+			if ($trnd == 0) {
+				$sts = sprintf("%04d%04d",$def_pc1,$def_bn1);
+                $sts .= 'Yw'; $item = $def_yw;
+			}
+			if ($trnd == 1) {
+				$sts = sprintf("%04d%04d",$def_pc2,$def_bn2);
+                $sts .= 'Ys'; $item = $def_ys;
+			}
+			if ($trnd == 2) {
+				$sts = sprintf("%04d%04d",$def_pc3,$def_bn3);
+                $sts .= 'Ya'; $item = $def_ya;
+			}
+			if ($trnd == 3) {
+				$sts = sprintf("%04d%04d",$def_pc4,$def_bn4);
+                $sts .= 'Yt'; $item = $def_yt;
+			}
+# を
+	if ($sp =~ /Ws/ && $sp =~ /As/ && $sp =~ /Sc/)	{$trnd = int(rand(5))}
+	elsif ($sp =~ /Ws/ && $sp =~ /As/)		{$trnd = (0,1,2,4)[int(rand(4))]}
+	elsif ($sp =~ /Ws/ && $sp =~ /Sc/)		{$trnd = (0,3)[int(rand(2))]}
+	elsif ($sp =~ /As/ && $sp =~ /Sc/)		{$trnd = int(rand(4)) + 1}
+	elsif ($sp =~ /Ws/)				{$trnd = 0}
+	elsif ($sp =~ /As/)				{$trnd = (1,2,4)[int(rand(3))]}
+	elsif ($sp =~ /Sc/)				{$trnd = 3}
+	$rnd = 0 if $sp =~ /Bp/;
+	if ($rnd <= $def_pr) {
+		if ($trnd == 0) {
+			$sts = sprintf("%04d%04d",$def_pc1,$def_bn1);
+			$sts .= 'Yw'; $item = $def_yw;
+			}
+		if ($trnd == 1) {
+			$sts = sprintf("%04d%04d",$def_pc2,$def_bn2);
+			$sts .= 'Ys'; $item = $def_ys;
+			}
+		if ($trnd == 2) {
+			$sts = sprintf("%04d%04d",$def_pc3,$def_bn3);
+			$sts .= 'Ya'; $item = $def_ya;
+			}
+		if ($trnd == 3) {
+			$sts = sprintf("%04d%04d",$def_pc4,$def_bn4);
+			$sts .= 'Yt'; $item = $def_yt;
+			}
+		if ($trnd == 4) {
+			$sts = sprintf("%04d%04d",$def_pc5,$def_bn5);
+			$sts .= 'Yh'; $item = $def_yh;
+			}
+# に変更します
+
+
+# sos2.cgiの# Sub Goods After #の
+	@INi  = ('Sw','Kn','Kt','Ax','Gv','Wd','Bw','Mi','Sh','Ar','Jw','Na','V','Pi','Oi',
+			 'Fd','Hb','Di','Lc','Ig','Rb','Bg','Ca','Ss','Yw','Ys','Ya','Yt');
+	@INs  = ('Zs','Zk','Zt','Zx','Zg','Zw','Zb','Zm','Zl','Za','Zj','Zq','Yv','Zp','Zo',
+			 'Zf','Zh','Zd','Zc','Zi','Zr','Zn','Zz','Zv','Yx','Yy','Yz','Yj');
+# を
+	@INi  = ('Sw','Kn','Kt','Ax','Gv','Wd','Bw','Mi','Sh','Ar','Jw','Na','V','Pi','Oi',
+			 'Fd','Hb','Di','Lc','Ig','Rb','Bg','Ca','Ss','Yw','Ys','Ya','Yt','Hr','Yh');
+	@INs  = ('Zs','Zk','Zt','Zx','Zg','Zw','Zb','Zm','Zl','Za','Zj','Zq','Yv','Zp','Zo',
+			 'Zf','Zh','Zd','Zc','Zi','Zr','Zn','Zz','Zv','Yx','Yy','Yz','Yj','Yr','Ym');
+# に変更します(@INiに ,'Hr','Yh' が、@INsに ,'Yr','Ym' が追加されています)
+
+
+# 以上で改造完了です

@@ -1,0 +1,121 @@
+############ 複数回探索 Ver 1.1 ################################
+
+# ---------- 説明 ----------------------------------------------
+# 他サイトでも何種類か公開されている複数回探索です
+# 他と比べて、メッセージの表示や探索できないときの表示に
+# 優れている……と思います
+# 便宜上、アイテムが見つからなかったときも
+# 体力を消費するように変更されています
+# --------------------------------------------------------------
+
+# ---------- 更新履歴 ------------------------------------------
+# Ver1.1   11/13/2003   アイテムが見つからないときの処理を修正
+# Ver1.0   11/09/2003   公開
+# --------------------------------------------------------------
+
+
+# sos2.cgiの# Sub Normal Action #の
+&input('radio','mode','find_item',' checked',"アイテム探索<br>\n")	 if $mysp !~ /Nf/;
+&input('radio','mode','use_before','',"アイテムの脱着・使用<br>\n")	if $mysp =~ /Tf/;
+&input('radio','mode','use_before','',"アイテムの使用<br>\n")		  if $mysp =~ /Tv/;
+# を
+@rcdlines = &get_user("$Fm{'id'}");
+$hpn = $hp - 1;
+$cantfind = " checked" if $hp < 2 || $xi <= @items;
+if ($cantfind && $mysp !~ /Nf/) {
+	&input('radio','mode','find_item','',"アイテム探索　\n");
+	&input('text','n','0',' size="2" disabled',"回<br>\n");
+	}
+elsif ($mysp !~ /Nf/) {
+	&input('radio','mode','find_item',' checked',"アイテム探索　\n");
+	&input('text','n',"$hpn",' size="2"',"回<br>\n");
+	}
+&input('radio','mode','use_before',"$cantfind","アイテムの脱着・使用<br>\n")	if $mysp =~ /Tf/;
+&input('radio','mode','use_before',"$cantfind","アイテムの使用<br>\n")		if $mysp =~ /Tv/;
+# に変更します
+
+
+# sos2.cgiの# Sub Find Item #を以下のものに置き換えます
+#########################   ここから   #########################
+# Sub Find Item #
+sub find_item {
+if (!$post) { return }
+@rcdlines = &get_user("$Fm{'id'}");
+
+if ($av eq 'dead') { push (@msg,'死んでいます');return }
+if ($hp <= 1)	  { push (@msg,'ヒットポイントが足りません');return }
+
+&splititem('i');
+if (@items >= $xi) { push (@msg,'これ以上は持てません');return }
+
+$Fm{'n'} = 1 if $Fm{'n'} =~ /\D/ || !$Fm{'n'};
+$Fm{'n'} = $hp - 1 if $Fm{'n'} > $hp - 1;
+
+@itemlines = &opendat($itmdat);
+if (!@itemlines) { &error('アイテムデータ読みこみエラー') }
+
+foreach (1 .. $Fm{'n'}) {
+	if ($hp < 2) {&findlast; push (@msg,"体力が足りません"); return}
+	if (@items + @gotitem >= $xi) {&findlast; push (@msg,"これ以上は持てません"); return}
+	&findloop;
+	}
+
+&findlast;
+}
+
+# Sub Find Loop #
+sub findloop {
+undef @founditems;
+$poison = int(rand(100)) + 1;
+$stellatio = int(rand(100)) + 1;
+$rnd = int(rand(100)) + 1;
+
+# 探索の特殊能力
+if ($sp =~ /Ft/) { $rnd -= 2; $rnd = 1 if $rnd < 1 }
+
+foreach $item (@itemlines) {
+	($inm,$idt,$idc) = split(/<>/,$item);
+	if ($rnd <= $idc) { push(@founditems,$item) }
+	}
+
+$rnd = int(rand(@founditems));
+
+$hp--;
+
+($inm,$idt,$idc) = split(/<>/,$founditems[$rnd]);
+return if !$inm;
+
+if ($poison <= $def_pd && $av eq 'poison') {$hp--; $hp = 1 if $hp < 1; $dmg++}
+
+if ($stellatio <= $def_zd) {
+	if ($def_xs && length($is) > $def_xs - 1) { push (@msg,'ステラツィオを発見しましたが、所持オーバーの為捨てました');return }
+	$itsrnd = int(rand(12));
+	$is .= "$iti[$itsrnd]";
+	push (@msg,"<img src=$imgdir$itsrnd$def_jg width=$st_wd height=$st_ht> $itn[$itsrnd]のステラツィオを発見しました");
+	return;
+	}
+
+if ($idt !~ /Gl/) {push (@gotitem,"$inm△$idt"); push (@msg,"$inmをみつけました")}
+else {$money += substr($idt,0,4)}
+
+if ($idt =~ /Li/) {
+	foreach (0 .. $#itemlines) {
+		($lnm,$ldt,$ldc) = split(/<>/,$itemlines[$_]);
+		if ($inm eq $lnm) { splice (@itemlines,$_,1); last }
+		}
+	&writedat($itmdat,@itemlines);
+	}
+}
+
+# Sub Find Last #
+sub findlast {
+push (@msg,"毒によるダメージのため体力が$dmg減りました") if $dmg;
+push (@msg,"$money円をみつけました") if $money;
+push (@msg,"何もみつかりませんでした") if !$money && !@gotitem;
+@items = (@items,@gotitem); $mn += $money; &joinitem('i');
+&userout;
+}
+#########################   ここまで   #########################
+
+
+# 以上で改造完了です

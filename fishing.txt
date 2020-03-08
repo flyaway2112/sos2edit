@@ -1,0 +1,208 @@
+############ 釣りシステム Ver 1.0 ##############################
+
+# ---------- 説明 ----------------------------------------------
+# 釣り竿(例：釣り竿△00300300Rd)を持っているプレイヤーは、
+# 釣りをすることができます
+# 釣り竿のアイテムデータは特殊で、数値の右4桁を使用可能回数としています
+# 上の例の場合、300回使用可能ということになります
+# 複数回探索(http://www2k.biglobe.ne.jp/~yamahon/sos2/loopfind.txt)での
+# 記述を利用しますので、複数回探索を先に導入してください
+# --------------------------------------------------------------
+
+# ---------- 更新履歴 ------------------------------------------
+# Ver1.0   11/09/2003   公開
+# --------------------------------------------------------------
+
+
+# sos2.cgiの設定項目に
+$fishdat = './fish.cgi';	# 釣れるアイテムのデータファイル
+# を追加します
+
+
+# ufs2.cgiの設定項目に
+$fishdat = './fish.cgi';	# 釣れるアイテムのデータファイル(sos2.cgiと同じにしてください)
+$fbitdat = './fbit.cgi';	# 釣れるアイテムの補充元ファイル
+# を追加します
+
+
+# 変数$fishdat,$fbitdatに代入されたファイル(この場合、fish.cgi,fbit.cgi)を作成します
+# (パーミッション値は通常666)
+# $itmdat(itm.dat),$bitdat(bit.dat)と要領は同じです
+
+
+# sos2.cgiの# Main Program #の
+if ($Fm{'mode'} eq 'find_item')	{ &play_form	}
+# の下に
+if ($Fm{'mode'} eq 'fishing')	{ &play_form	}
+# を追加します
+
+
+# sos2.cgiの# Sub Play Form #の
+&find_item   if $Fm{'mode'} eq 'find_item';
+# の下に
+&find_item   if $Fm{'mode'} eq 'fishing';
+# を追加します
+
+
+# sos2.cgiの# Sub Normal Action #の
+if ($cantfind && $mysp !~ /Nf/) {
+	&input('radio','mode','find_item','',"アイテム探索　\n");
+	&input('text','n','0',' size="2" disabled',"回<br>\n");
+	}
+elsif ($mysp !~ /Nf/) {
+	&input('radio','mode','find_item',' checked',"アイテム探索　\n");
+	&input('text','n',"$hpn",' size="2"',"回<br>\n");
+	}
+# を
+&splititem('i');
+foreach (@items) {$fishing = 1 if (split(/△/))[1] =~ /Rd/}
+if ($cantfind && $mysp !~ /Nf/) {
+	&input('radio','mode','find_item','',"アイテム探索　\n");
+	&input('text','n','0',' size="2" disabled',"回<br>\n");
+	if ($fishing) {
+		&input('radio','mode','fishing','',"アイテムを釣る　\n");
+		&input('text','n2','0',' size="2" disabled',"回<br>\n");
+		}
+	}
+elsif ($mysp !~ /Nf/) {
+	&input('radio','mode','find_item',' checked',"アイテム探索　\n");
+	&input('text','n',"$hpn",' size="2"',"回<br>\n");
+	if ($fishing) {
+		&input('radio','mode','fishing','',"アイテムを釣る　\n");
+		&input('text','n2',"$hpn",' size="2"',"回<br>\n");
+		}
+	}
+# に変更します
+
+
+# sos2.cgiの# Sub Find Item #の
+if (@items >= $xi) { push (@msg,'これ以上は持てません');return }
+# の下に
+if ($Fm{'mode'} eq 'fishing') {
+	foreach (0 .. $#items) {
+		($Ritem,$Rsts,$Rprice) = split(/△/,$items[$_]);
+		if ($Rsts =~ /Rd/) {$rod = $_; $fishtime = int(substr($Rsts,4,4)); last}
+		}
+	if ($Rsts !~ /Rd/) {push (@msg,'釣り竿を持っていません'); return}
+	$Fm{'n'} = $Fm{'n2'}; $itmdat = $fishdat;
+	@find = ('発見し','みつけ','みつかり');
+	}
+else {@find = ('釣り上げ','釣り上げ','釣れ')}
+# を追加し
+if (@items + @gotitem >= $xi) {&findlast; push (@msg,"これ以上は持てません"); return}
+# の下に
+if ($Fm{'mode'} eq 'fishing' && $fishtime < 1) {splice(@items,$fp,1); &findlast; push (@msg,"$Ritemが壊れました"); return}
+$fishtime--;
+# を追加します
+
+
+# sos2.cgiのSub Find Loop #の
+if ($def_xs && length($is) > $def_xs - 1) { push (@msg,'ステラツィオを発見しましたが、所持オーバーの為捨てました');return }
+# を
+if ($def_xs && length($is) > $def_xs - 1) { push (@msg,"ステラツィオを$find[0]ましたが、所持オーバーの為捨てました");return }
+# に変更し
+push (@msg,"<img src=$imgdir$itsrnd$def_jg width=$st_wd height=$st_ht> $itn[$itsrnd]のステラツィオを発見しました");
+# を
+push (@msg,"<img src=$imgdir$itsrnd$def_jg width=$st_wd height=$st_ht> $itn[$itsrnd]のステラツィオを$find[0]ました");
+# に変更し
+if ($idt !~ /Gl/) {push (@gotitem,"$inm△$idt"); push (@msg,"$inmをみつけました")}
+# を
+if ($idt !~ /Gl/) {push (@gotitem,"$inm△$idt"); push (@msg,"$inmを$find[1]ました")}
+# に変更します
+
+
+# sos2.cgiの# Sub Find Last #の
+push (@msg,"$money円をみつけました") if $money;
+push (@msg,"何もみつかりませんでした") if !$money && !@gotitem;
+# を
+push (@msg,"$money円を$find[1]ました") if $money;
+push (@msg,"何も$find[2]ませんでした") if !$money && !@gotitem;
+if ($Fm{'mode'} eq 'fishing' && $fishtime >= 1) {
+	$items[$rod] = sprintf("$Ritem△%04d%04d%s",substr($Rsts,0,4),$fishtime,substr($Rsts,8));
+	$items[$rod] .= "△$Rprice" if $Rprice;
+	}
+# に変更します
+
+
+# ufs2.cgiの
+if ($Fm{'mode'} eq 'edit_item')      { &edit_item      }
+# の下に
+if ($Fm{'mode'} eq 'edit_item2')     { &edit_item      }
+# を追加し
+if ($Fm{'mode'} eq 'add_item')       { &add_item       }
+# の下に
+if ($Fm{'mode'} eq 'add_item2')      { &add_item       }
+# を追加し
+if ($Fm{'mode'} eq 're_item')        { &re_item        }
+# の下に
+if ($Fm{'mode'} eq 're_item2')       { &re_item        }
+# を追加し
+if ($Fm{'mode'} eq 'adding_item')    { &adding_item    }
+# の下に
+if ($Fm{'mode'} eq 'adding_item2')   { &adding_item    }
+# を追加します
+
+
+# ufs2.cgiの# Sub Admin #の
+print qq|<input type=radio name=mode value=edit_item>アイテム設定<br>\n|;
+print qq|<input type=radio name=mode value=add_item>アイテム補充<br>\n|;
+# の下に
+print qq|<input type=radio name=mode value=edit_item2>釣りアイテム設定<br>\n|;
+print qq|<input type=radio name=mode value=add_item2>釣りアイテム補充<br>\n|;
+# を追加します
+
+
+# ufs2.cgiの# Sub Edit Item #の
+@bitlines = &opendat($bitdat);
+# を
+if ($Fm{'mode'} eq 'edit_item') {@bitlines = &opendat($bitdat)}
+else {@bitlines = &opendat($fbitdat)}
+# に変更し
+&table_bottom('re_item');
+# を
+if ($Fm{'mode'} eq 'edit_item') {&table_bottom('re_item')}
+else {&table_bottom('re_item2')}
+# に変更します
+
+
+# ufs2.cgiの# Sub Re Item #の
+@bitlines = &opendat($bitdat);
+# を
+if ($Fm{'mode'} eq 're_item') {@bitlines = &opendat($bitdat)}
+else {@bitlines = &opendat($fbitdat)}
+# に変更し
+&writedat($bitdat,@newlines);
+# を
+if ($Fm{'mode'} eq 're_item') {&writedat($bitdat,@newlines)}
+else {&writedat($fbitdat,@newlines)}
+# に変更します
+
+
+# ufs2.cgiの# Sub Add Item #の
+@bitlines = &opendat($bitdat);
+@itmlines = &opendat($itmdat);
+# を
+if ($Fm{'mode'} eq 'add_item') {@bitlines = &opendat($bitdat); @itmlines = &opendat($itmdat)}
+else {@bitlines = &opendat($fbitdat); @itmlines = &opendat($fishdat)}
+# に変更し
+&table_bottom('adding_item');
+# を
+if ($Fm{'mode'} eq 'add_item') {&table_bottom('adding_item')}
+else {&table_bottom('adding_item2')}
+# に変更します
+
+
+# ufs2.cgiの# Sub Adding Item #の
+@itmlines = &opendat($itmdat);
+# を
+if ($Fm{'mode'} eq 'adding_item') {@itmlines = &opendat($itmdat)}
+else {@itmlines = &opendat($fishdat)}
+# に変更し
+&writedat($itmdat,@items);
+# を
+if ($Fm{'mode'} eq 'adding_item') {&writedat($itmdat,@items)}
+else {&writedat($fishdat,@items)}
+# に変更します
+
+
+# 以上で改造完了です

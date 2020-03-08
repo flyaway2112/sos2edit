@@ -1,0 +1,59 @@
+############ 登録/削除履歴記録 Ver 1.0 #########################
+
+# ---------- 説明 ----------------------------------------------
+# キャラクター登録/削除の履歴を記録します
+# 多重登録の防止機能はデフォルトより緩くなっていますが
+# 登録/削除を繰り返すホストには一定の抑制効果があります
+# (※改造中で$htの内容を変更します)
+# --------------------------------------------------------------
+
+# ---------- 更新履歴 ------------------------------------------
+# Ver1.0   12/20/2003   公開
+# --------------------------------------------------------------
+
+
+# sos2.cgiの# Sub Get Host #の
+$host =~ s/(\d+)\.(\d+)\.(\d+)\.(\d+)/$1\.$2\.$3\./;
+# を削除します
+
+
+# sos2.cgiの設定部分に
+$hstdat = './host.cgi';		# 最近登録/削除したホスト
+$hstmax = 30;			# 最近登録/削除したホストのMAX履歴保存数
+# を追加します
+
+
+# 変数$hstdatに代入された空のファイル(この場合、host.cgi)を作成します
+# (パーミッション値は通常666)
+
+
+# sos2.cgiの# Sub Make New #の
+&error("同一のホストが既に存在しています") if $zpoint;
+# を
+@hosts = &opendat($hstdat);
+foreach (@hosts) {&error("登録/削除したばかりなのでキャラを登録できません") if $host eq (split(/<>/))[1]}
+# に変更し
+chmod(0666,"$usrdir$id\.dat");
+# の下に
+if ($Fm{'pass'} ne $admpas) {
+	&get_time;
+	while (@hosts >= $hstmax) {pop(@hosts)}
+	unshift (@hosts,"登録<>$host<>$Fm{'name'}<>$Fm{'pass'}<>$date<>\n");
+	&writedat($hstdat,@hosts);
+	}
+# を追加します
+
+
+# sos2.cgiの# Sub Delete After #の
+unlink("$usrdir$id\.dat");
+# の下に
+if ($ps ne $admpas) {
+	@hosts = &opendat($hstdat); &get_time;
+	while (@hosts >= $hstmax) {pop(@hosts)}
+	unshift (@hosts,"削除<>$ht<>$nm<>$ps<>$date<>\n");
+	&writedat($hstdat,@hosts);
+	}
+# を追加します
+
+
+# 以上で改造完了です

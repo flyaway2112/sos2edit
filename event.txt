@@ -1,0 +1,198 @@
+############ 最近の出来事 Ver 2.2 ##############################
+
+# ---------- 説明 ----------------------------------------------
+# トップページに最近起きた出来事を表示するシステムです
+# 比較的応用が効くと思います
+# --------------------------------------------------------------
+
+# ---------- 更新履歴 ------------------------------------------
+# Ver2.2   08/22/2004   恥ずかしいスペルミスを修正
+# Ver2.1   11/08/2003   細かいところを修正
+# Ver2.0   06/20/2003   全体的に修正 全記事表示を追加
+# Ver1.4   12/25/2002   誤解を招く表現を修正
+# Ver1.3   11/24/2002   Ver1.2のミスを修正
+# Ver1.2   11/23/2002   記録する出来事を追加など
+# Ver1.1   09/16/2002   ステラを揃えた時の表示を修正
+# Ver1.0   08/06/2002   公開
+# --------------------------------------------------------------
+
+
+# sos2.cgiの設定部分に以下の項目を追加します
+# ---------- 最近の出来事設定
+$ive_log = './event.cgi';	# 最近の出来事のログファイル
+$ive_max = 100;			# 最近の出来事の最大記事数(ufs2.cgiと同じにしてください)
+$ive_tmx = 10;			# トップページに表示する最近の出来事の記事数
+$ive_rew = 100;			# かけた報奨金がこれ以上だと記録
+$ive_wid = 480;			# 全記事表示時のウィンドウの横サイズ
+$ive_hei = 320;			# 全記事表示時のウィンドウの縦サイズ
+
+
+# ufs2.cgiの設定部分にも以下の項目を追加します
+# ---------- 最近の出来事設定
+$ive_log = './event.cgi';	# 最近の出来事のログファイル
+$ive_max = 100;			# 最近の出来事のログ行数(sos2.cgiと同じにしてください)
+
+
+# 変数$ive_logに代入された空のファイル(この場合、event.cgi)を作成します
+# (パーミッション値は通常666)
+
+
+# sos2.cgiの# Main Program #の
+&unlock;
+# の上に
+if ($Fm{'mode'} eq 'event_list') {&header; &event_list}
+# を追加します
+
+
+# sos2.cgiに以下のサブルーチンを追加します(一番最後を推奨)
+#########################   ここから   #########################
+# Sub Event #
+sub event {
+&get_time;
+@events = &opendat($ive_log);
+unshift (@events,"$_[0]<>$date<>\n");
+while (@events > $ive_max) {pop(@events)}
+&writedat($ive_log,@events);
+}
+
+# Sub Event View #
+sub event_view {
+@events = &opendat($ive_log);
+print "<center><b>最近の出来事</b>";
+print "[<a href=\"$cgiurl?mode=event_list\" target=\"event\" ";
+print "onClick=\"window.open('$cgiurl?mode=event_list','event',";
+print "'width=$ive_wid,height=$ive_hei,scrollbars=1');";
+print "return(false)\">全記事</a>]</center>\n<hr>\n";
+foreach (0 .. $ive_tmx - 1) {
+	($ive_data,$ive_date) = split(/<>/,$events[$_]);
+	print "$ive_data<font color=\"#C0C0C0\">$ive_date</font><br>\n";
+	}
+print "<hr>\n";
+}
+
+# Sub Event List #
+sub event_list {
+$ive_all = @events = &opendat($ive_log);
+print "<div align=\"center\"><b>最近の出来事　全記事($ive_all件)</b>\n<hr>\n";
+foreach (@events) {
+	($ive_data,$ive_date) = split(/<>/);
+	print "$ive_data<font color=\"#C0C0C0\">$ive_date</font><br>\n";
+	}
+print "</div><hr>\n";
+}
+#########################   ここまで   #########################
+
+
+# sos2.cgiの# Fight Sub #の
+if ($DIE && $Lr >= $def_rp)  { &fmsg('褒'); $Wm = $Lr; $Lr = 0 }
+# を
+if ($DIE && $Lr >= $def_rp)  {
+	if ($nm eq $Wn)	{&event("[$id]$Wnが[$pid]$Lnに勝利し、$Lr\Gの報奨金を手に入れました。")}
+	else		{&event("[$pid]$Wnが[$id]$Lnに勝利し、$Lr\Gの報奨金を手に入れました。")}
+	&fmsg('褒'); $Wm = $Lr; $Lr = 0;
+	}
+# に変更します
+
+
+# sos2.cgiの# Sub Make New #の
+$Fm{'id'} = $id; &cookie_set; &play_form;
+# を
+$Fm{'id'} = $id; &cookie_set; &event("[$id]$Fm{'name'}が新しく参加しました。"); &play_form;
+# に変更します
+
+
+# sos2.cgiの# Sub Stellatio Complete の
+if ($sdtlines[$_] =~ /AT/) { $ak += $value }
+elsif ($sdtlines[$_] =~ /DF/) { $dd += $value }
+elsif ($sdtlines[$_] =~ /BG/) { $xi += $value }
+elsif ($sdtlines[$_] =~ /HP/) { $xp += $value }
+# を
+if ($sdtlines[$_] =~ /AT/) { $ak += $value; $stl_nam = "攻撃力"}
+elsif ($sdtlines[$_] =~ /DF/) { $dd += $value; $stl_nam ="防御力"}
+elsif ($sdtlines[$_] =~ /BG/) { $xi += $value; $stl_nam ="所持上限"}
+elsif ($sdtlines[$_] =~ /HP/) { $xp += $value; $stl_nam ="体力"}
+# に変更し
+$fg = ''; &userout;
+# の下に
+if ($stl_nam)	{&event("[$id]$nmがステラツィオを揃え、$stl_namのステータスを上げました。")}
+else		{&event("[$id]$nmがステラツィオを揃え、スキルを手に入れました。")}
+# を追加します
+
+
+# sos2.cgiの# Sub Find to Delete # の
+if ($now > $tm && $ps ne $admpas) { unlink("$usrdir$id\.dat") }
+# を
+if ($now > $tm && $ps ne $admpas) {&event("[$id]$nmが期限切れで削除されました。"); unlink("$usrdir$id\.dat")}
+# に変更します
+
+
+# sos2.cgiの# Sub Delete After #の
+unlink("$usrdir$id\.dat");
+# の下に
+&event("[$id]$nmがキャラを削除しました。");
+# を追加します
+
+
+# sos2.cgiの# Sub Reward #の
+push (@msg,"$pnmに$Fm{'price'}\Gの報奨金をかけました");
+# の下に
+if ($Fm{'price'} => $ive_rew) {&event("[$pid]$pnmに$Fm{'price'}\Gの報奨金がかけられました。")}
+# を追加します
+
+
+# sos2.cgiの# Sub Find Item #の
+&writedat($itmdat,@itemlines);
+# の下に
+&event("[$id]$nmが$inmを見つけました。");
+# を追加します
+
+
+# sos2.cgiの# Sub Fight #の
+push (@msg,"$itemが壊れました"); last;
+# を
+push (@msg,"$itemが壊れました"); &event("[$id]$nmの$itemが壊れました。"); last;
+# に変更します
+
+
+# sos2.cgiの# Sub Fight #の
+&joinitem('iI'); &fmsg('奪');
+# の下に
+if ($nm eq $Wn) {&event("[$id]$Wnが[$pid]$Lnの$itemを奪いました。")}
+else		{&event("[$pid]$Wnが[$id]$Lnの$itemを奪いました。")}
+# を追加します
+
+
+#ufs2.cgiに以下のサブルーチンを追加します(一番最後を推奨)
+#########################   ここから   #########################
+# Sub Event #
+sub event {
+&gettime;
+@events = &opendat($ive_log);
+unshift (@events,"$_[0]<>$date<>\n");
+while (@events > $ive_max) {pop(@events)}
+&writedat($ive_log,@events);
+}
+#########################   ここまで   #########################
+
+
+# ufs2.cgiの# Sub Class Change #の
+print qq|<center>クラスチェンジしました。<br>今からあなたは$jbです。<br>\n|;
+print qq|<a href=$cgiurl>戻る</a></center><br>|;
+# の下に
+&event("[$id]$nmが$jbにクラスチェンジしました。");
+# を追加します
+
+
+# ufs2.cgiの# Sub Job Changeの
+print qq|<center>転職しました。<br>今からあなたは$jbです。<br>\n|;
+print qq|<a href=$cgiurl>戻る</a></center><br>|;
+# の下に
+&event("[$id]$nmが$jbに転職しました。");
+# を追加します
+
+
+# あとはsos2.cgiの# Sub Saga #の
+print qq|<td valign=top><b>$intl</b><br><br>\n$info<br><br>\n|;
+# の下あたりに
+&event_view;
+# と追加すれば、改造完了です

@@ -1,0 +1,122 @@
+############ 獲得金＆売上金表示 Ver 1.0 ########################
+
+# ---------- 説明 ----------------------------------------------
+# 戦闘系のキャラクターに報奨金の獲得金額の総額を記録させ、
+# 非戦闘系のキャラクターにアイテムの売上金額の総額を記録させます
+# $tt($ptt)というフラグを新たに追加する必要があります
+# --------------------------------------------------------------
+
+# ---------- 更新履歴 ------------------------------------------
+# Ver1.0   11/10/2003   公開
+# --------------------------------------------------------------
+
+
+# $tt($ptt)のフラグ足しを施します
+# バックアップを取り、細心の注意を払って行なってください
+# ※フラグ足しについては、
+# Lazing Saga(http://yuya.honey.ne.jp/sos/)で詳しく解説され、
+# ゲーマーズ伝説(http://kazu77.s18.xrea.com/)では、
+# 作業を自動化するフリーソフトが配布されていますので、
+# そちらを参照してください
+
+
+# sos2.cgiの設定部分の
+$ricnam = '大富豪';
+# の下に
+$getnam = '鬼人';
+$prdnam = '大商人';
+# を追加します
+
+
+# sos2.cgiの# Sub Fight #の
+$mn += $Wm; $plz++; $wn++; $itemchance = 1; $hp = $xp if $hp > $xp;
+# を
+$mn += $Wm; $tt += $Wm; $plz++; $wn++; $itemchance = 1; $hp = $xp if $hp > $xp;
+# に変更し
+$pmn += $Wm; $lz++; $pwn++; $php = $pxp if $php > $pxp;
+# を
+$pmn += $Wm; $ptt += $Wm; $lz++; $pwn++; $php = $pxp if $php > $pxp;
+# に変更します
+
+
+# sos2.cgiの# Sub Buy After #の
+$mn -= $price; $pmn += $price;
+# を
+$mn -= $price; $pmn += $price; $ptt += $price;
+# に変更します
+
+
+# sos2.cgiの# Sub Menu #の
+print qq|<a href=$cgiurl?mode=list&order=Bounty target=_blank>Bounty</a>｜|;
+# の下に
+print qq|<a href=$cgiurl?mode=list&order=GetBounty target=_blank>GetBounty</a>｜|;
+# を追加し
+print qq|<a href=$cgiurl?mode=list&order=Rate target=_blank>Rate</a>｜|;
+# の下に
+print qq|<a href=$cgiurl?mode=list&order=Proceeds target=_blank>Proceeds</a>｜|;
+# を追加します
+
+
+# sos2.cgiの# Sub List In Order #の
+%order = ('ID',$id,'Name',$nm,'Rate',$rt,'Money',$mn,'Bounty',$rw,'Job',$jb);
+# を
+%order = ('ID',$id,'Name',$nm,'Rate',$rt,'Money',$mn,'Bounty',$rw,'Job',$jb,'GetBounty',$tt,'Proceeds',$tt);
+# に変更し
+next if $Fm{'order'} eq 'Bounty' && $sp !~ /Tf/;
+# の下に
+next if $Fm{'order'} eq 'GetBounty' && $sp !~ /Tf/;
+next if $Fm{'order'} eq 'Proceeds' && $sp !~ /Tv/;
+# を追加します
+
+
+# sos2.cgiの# Sub Find the Best Player #の
+if ($mn > $bestmoney && $sp !~ /Pb/) { $rich = $nm; $rimg = $ig; $bestmoney = $mn }
+# の下に
+if ($tt > $bestgetbounty && $sp =~ /Tf/) { $getbounty = $nm; $gimg = $ig; $bestgetbounty = $tt }
+if ($tt > $bestproceeds && $sp =~ /Tv/ && $sp !~ /Pb/) { $proceeds = $nm; $pimg = $ig; $bestproceeds = $tt }
+# を追加します
+
+
+# sos2.cgiの# Sub Saga #の
+print qq|この物語は$hernam$heroと$ricnam$rich、\n|;
+# を
+print qq|この物語は$hernam$heroと$ricnam$richと$getnam$getbountyと$prdnam$proceeds、\n|;
+# に変更し
+print qq|$ricnam$rich| if $rich;
+# の下に
+print qq|</td>\n<td align=center>\n|;
+print qq|<img src=$imgdir$gimg width=$ig_wd height=$ig_ht><br>\n| if $gimg;
+print qq|$getnam$getbounty| if $getbounty;
+print qq|</td>\n<td align=center>\n|;
+print qq|<img src=$imgdir$pimg width=$ig_wd height=$ig_ht><br>\n| if $pimg;
+print qq|$prdnam$proceeds| if $proceeds;
+# を追加します
+
+
+# sos2.cgiの# Sub Player List #の
+print qq|<tr><td colspan=12 bgcolor=$tblbdc><b><font color=$scdclr>$Fm{'order'}</font></b></td></tr>\n|;
+# を
+print qq|<tr><td colspan=13 bgcolor=$tblbdc><b><font color=$scdclr>$Fm{'order'}</font></b></td></tr>\n|;
+# に変更し
+print qq|<td colspan=3><b><font color=$scdclr>コメント</font></b></td></tr>\n|;
+# を
+print qq|<td colspan=4><b><font color=$scdclr>コメント</font></b></td></tr>\n|;
+# に変更し
+foreach ('居場所','ID','攻','防','勝','負','殺','死','状','所持金','報奨金','アイテム') {
+# を
+if ($Fm{'order'} eq 'Proceeds') {$ttname = '売上金'}
+elsif ($Fm{'order'} eq 'Bounty' || $Fm{'order'} eq 'GetBounty' || $Fm{'order'} eq 'Rate') {$ttname = '獲得金'}
+else {$ttname = '獲／売'}
+foreach ('居場所','ID','攻','防','勝','負','殺','死','状','所持金','報奨金',$ttname,'アイテム') {
+# に変更し
+print qq|<td colspan=3>$cm_</td></tr><tr bgcolor=$ltclr>\n<td>|;
+# を
+print qq|<td colspan=4>$cm_</td></tr><tr bgcolor=$ltclr>\n<td>|;
+# に変更し
+if ($rw >= $def_rp) { print qq|<td><font color=$optclr><b>$rw\G</b></font></td>\n| } else { print qq|<td>$rw\G</td>\n| }
+# の下に
+print qq|<td>$tt\G</td>\n|;
+# を追加します
+
+
+# 以上で改造完了です
